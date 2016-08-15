@@ -35,6 +35,7 @@ namespace WindowsFormsApplication1
           
             InitializeComponent();
             this.availablePorts.Items.AddRange(getPorts());
+            UpdateDataBase();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -195,6 +196,18 @@ namespace WindowsFormsApplication1
         {
 
         }
+
+        void UpdateDataBase()
+        {
+            Database1DataSet db = new Database1DataSet();
+            DataTable db1 = db.SprayForce;
+            
+            db1.Columns.Add("name", typeof(string));
+            db1.Columns.Add("address", typeof(string));
+            db1.AcceptChanges();
+            
+        }
+
     }
 
 
