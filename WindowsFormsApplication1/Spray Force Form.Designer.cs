@@ -94,7 +94,6 @@ namespace WindowsFormsApplication1
             this.label1.Size = new System.Drawing.Size(118, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Force Reading:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // ForceReadingLabel
             // 
@@ -107,7 +106,6 @@ namespace WindowsFormsApplication1
             this.ForceReadingLabel.TabIndex = 2;
             this.ForceReadingLabel.Text = "0.0 lbf.";
             this.ForceReadingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ForceReadingLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // label4
             // 
@@ -178,7 +176,7 @@ namespace WindowsFormsApplication1
             this.timeInputControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.timeInputControl.Size = new System.Drawing.Size(75, 22);
             this.timeInputControl.TabIndex = 7;
-            this.timeInputControl.Text = "2";
+            this.timeInputControl.Text = "10";
             // 
             // label3
             // 
@@ -191,7 +189,6 @@ namespace WindowsFormsApplication1
             this.label3.Size = new System.Drawing.Size(170, 22);
             this.label3.TabIndex = 8;
             this.label3.Text = "Test Length (seconds)";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // backgroundWorker1
             // 
@@ -223,7 +220,6 @@ namespace WindowsFormsApplication1
             this.graphCheckBox.TabIndex = 13;
             this.graphCheckBox.Text = "Graph Result";
             this.graphCheckBox.UseVisualStyleBackColor = true;
-            this.graphCheckBox.CheckedChanged += new System.EventHandler(this.graphCheckBox_CheckedChanged);
             // 
             // listBox1
             // 
@@ -272,7 +268,6 @@ namespace WindowsFormsApplication1
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(280, 175);
             this.tableLayoutPanel1.TabIndex = 11;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // label7
             // 
@@ -410,7 +405,6 @@ namespace WindowsFormsApplication1
             this.label2.Size = new System.Drawing.Size(118, 20);
             this.label2.TabIndex = 13;
             this.label2.Text = "Test Interval (s)";
-            this.label2.Click += new System.EventHandler(this.label2_Click_1);
             // 
             // ForceGraph
             // 
@@ -451,7 +445,6 @@ namespace WindowsFormsApplication1
             title1.Name = "Title1";
             title1.Text = "Force vs Time";
             this.ForceGraph.Titles.Add(title1);
-            this.ForceGraph.Click += new System.EventHandler(this.ForceGraph_Click);
             // 
             // ClearGraphButton
             // 
@@ -497,8 +490,7 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
-        private System.Windows.Forms.DataVisualization.Charting.Series series1;// code change rob
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label1;      
         private System.Windows.Forms.Label ForceReadingLabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button ConnectButton;
