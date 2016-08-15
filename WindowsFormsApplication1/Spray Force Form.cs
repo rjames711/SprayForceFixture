@@ -44,11 +44,9 @@ namespace WindowsFormsApplication1
             
             while (startButton)
             {
-
                 double force = dataSource.getsmoothedForce();
                 backgroundWorker1.ReportProgress(1, dataSource);
             }
-
             Console.WriteLine("exiting thread");                 
         }
 
@@ -89,7 +87,7 @@ namespace WindowsFormsApplication1
             {
                 testNumber++;
                 ForceGraph.Series.Add("Test " + testNumber.ToString());
-                ForceGraph.Series[testNumber].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline; ;
+                ForceGraph.Series[testNumber].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             }
 
         }
@@ -178,10 +176,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            progressBar1.Update();
-        }
         private bool hasConnection()
         {
             if(data == null||!data.hasConnection())
@@ -197,7 +191,10 @@ namespace WindowsFormsApplication1
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 
 
