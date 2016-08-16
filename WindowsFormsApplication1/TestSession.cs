@@ -16,13 +16,17 @@ namespace WindowsFormsApplication1
         public string testNotes;
         public string tester;
         public string testName;
+        public string testType;
+        public string units;
         double averageForce;
         double maxForce;
         double minForce;
         int dataPoints;
         string timeStamp;
+        string[] dateAndTime;
 
-        public TestSession(List<double> values,string testName, string item, string flowRate, string measuredFlow, string tester, string testNotes )
+
+        public TestSession(List<double> values,string testName, string item,string units, string flowRate, string measuredFlow, string testType, string tester, string testNotes )
         {
             this.values = new List<double>(values);// need to clone list so it doesn't maintain object reference.
             this.item = item;
@@ -35,8 +39,11 @@ namespace WindowsFormsApplication1
             this.maxForce = values.Max();
             this.minForce = values.Min();
             this.dataPoints = values.Count;
+            this.testType = testType;
+            this.units = units;
             DateTime time = DateTime.Now;
             timeStamp = time.ToString();
+            dateAndTime = timeStamp.Split(' ');
 
 
         }
@@ -45,12 +52,19 @@ namespace WindowsFormsApplication1
         {
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\rames\Documents\"+testName+".csv", true))
             {
+                file.WriteLine("Test Name,Item,Date,Time,Tester,Units,Notes");
                 file.Write(testName+",");
-                file.Write(item+",");
+                file.Write(item+", ");
+                file.Write(dateAndTime[0]+", ");
+                file.Write(dateAndTime[1] + " ,");
+                file.Write(tester+",");
+                file.Write(units + ",");
                 file.Write(testNotes+",");
-                file.Write(timeStamp);
                 file.WriteLine();
-                file.WriteLine("DataPoint,Values");
+                file.WriteLine("Average Force:,," + averageForce);
+                file.WriteLine("Max Force:,," + maxForce);
+                file.WriteLine("Min Force:,," + minForce);
+                file.WriteLine("DataPoint:,Values");
                 int i = 0;
                 foreach (double value in values)
                 {

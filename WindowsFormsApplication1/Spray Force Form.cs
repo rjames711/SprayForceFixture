@@ -15,7 +15,7 @@ using System.Timers;
 
 namespace WindowsFormsApplication1
 {
-    
+    // need to make a switch function to toggle recording and button text whether stopped manually or from time out.
 
     public partial class Form1 : Form
     {
@@ -23,7 +23,7 @@ namespace WindowsFormsApplication1
         bool recording=false;
         bool startButton;
         back data;
-        public double tare = 0;
+  
         System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
         int precision = 1;
         back dataSource; //should remove, redundant. only used in dowork then pass by ref to data
@@ -55,7 +55,7 @@ namespace WindowsFormsApplication1
         private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             data = (back)(e.UserState);
-            double force = data.getCurrentForce();
+            double force = data.getTaredForce();
             ForceReadingLabel.Text = formatForDisplay(force);
             int count = data.forceValues.Count();
 
@@ -65,13 +65,14 @@ namespace WindowsFormsApplication1
                 listBox1.Items.Add(formatForDisplay(data.forceValues.Last<double>()));
                 DataPointsLabel.Text = count.ToString();
                 double graphPoint = count / 20.0;
-                ForceGraph.Series[testNumber].Points.AddXY(graphPoint, force-tare);
+                ForceGraph.Series[testNumber].Points.AddXY(graphPoint, force);
                 updateTestResults();
                 if(count==testInterval*20)
                 {
-                    tests.Add(new TestSession(data.forceValues, TestNameBox.Text,ItemBox.Text,"","",TesterBox.Text,TestNotesBox.Text));
+                    tests.Add(new TestSession(data.forceValues, TestNameBox.Text,ItemBox.Text,data.unit,"","",TestTypeBox.Text,TesterBox.Text,TestNotesBox.Text));
                     recording = false;
                     data.recording = false;
+                    startTestButton.Text = "Start Test";
                 }
             }
             else
@@ -92,15 +93,28 @@ namespace WindowsFormsApplication1
             recording = !recording;
             data.recording = recording;
             testInterval = int.Parse(timeInputControl.Text);
-           
-            listBox1.Items.Clear();
-            data.forceValues.Clear();
+            if (testInterval > 10)
+            {
+                //if the test interval is larger than the graph size x axis is increased.
+                ForceGraph.ChartAreas[0].AxisX.Maximum = testInterval;
+            }
             if (recording)
             {
+                startTestButton.Text = "Stop Test";
                 testNumber++;
                 ForceGraph.Series.Add("Test " + testNumber.ToString());
                 ForceGraph.Series[testNumber].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
             }
+
+            else
+            {
+                startTestButton.Text = "Start Test";
+                //not recording means test was stopped early. Adds test to results.
+                tests.Add(new TestSession(data.forceValues, TestNameBox.Text, ItemBox.Text, data.unit, "", "",TestTypeBox.Text , TesterBox.Text, TestNotesBox.Text));
+            }
+            listBox1.Items.Clear();
+            data.forceValues.Clear();
+
 
         }
         private void ConnectButton_Click(object sender, EventArgs e)
@@ -134,7 +148,7 @@ namespace WindowsFormsApplication1
         private void TareButton_Click(object sender, EventArgs e)
         {
             if(hasConnection())
-                tare = data.getCurrentForce();
+                data.tare = data.getCurrentForce();
         }
 
         void setForce(string newForce)
@@ -162,7 +176,7 @@ namespace WindowsFormsApplication1
 
         String formatForDisplay(double value)
         {
-            return (Math.Round(value - tare, precision)).ToString("N1")+" "+data.unit;
+            return (Math.Round(value, precision)).ToString("N1")+" "+data.unit;
         }
 
         public string[] getPorts()

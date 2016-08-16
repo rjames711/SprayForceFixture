@@ -59,13 +59,14 @@ namespace WindowsFormsApplication1
             {
                 sum += getForce();
             }
-            double force = (sum / dataSmoothing) * 1;
+            currentForce = (sum / dataSmoothing); //need to maintain raw force reading for tare function to work.
+            taredForce = currentForce - tare;
             if (recording)
             {
-                forceValues.Add(force);
+                forceValues.Add(taredForce); 
             }
-            currentForce = force;
-            return force;
+          
+            return currentForce;
         }
 
 

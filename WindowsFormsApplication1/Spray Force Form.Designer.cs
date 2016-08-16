@@ -79,7 +79,7 @@ namespace WindowsFormsApplication1
             this.TestNameLabel = new System.Windows.Forms.Label();
             this.TestNameBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.ModsBox = new System.Windows.Forms.TextBox();
+            this.TestTypeBox = new System.Windows.Forms.TextBox();
             this.ItemBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.TesterBox = new System.Windows.Forms.TextBox();
@@ -521,7 +521,7 @@ namespace WindowsFormsApplication1
             this.exportDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exportDataButton.Location = new System.Drawing.Point(828, 44);
             this.exportDataButton.Name = "exportDataButton";
-            this.exportDataButton.Size = new System.Drawing.Size(75, 22);
+            this.exportDataButton.Size = new System.Drawing.Size(75, 25);
             this.exportDataButton.TabIndex = 17;
             this.exportDataButton.Text = "export data";
             this.exportDataButton.UseVisualStyleBackColor = true;
@@ -538,7 +538,7 @@ namespace WindowsFormsApplication1
             this.tableLayoutPanel3.Controls.Add(this.TestNameLabel, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.TestNameBox, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.ModsBox, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.TestTypeBox, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.ItemBox, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.label9, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.TesterBox, 3, 0);
@@ -603,14 +603,14 @@ namespace WindowsFormsApplication1
             this.label3.TabIndex = 10;
             this.label3.Text = "Shower Head ";
             // 
-            // ModsBox
+            // TestTypeBox
             // 
-            this.ModsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ModsBox.Location = new System.Drawing.Point(137, 65);
-            this.ModsBox.Name = "ModsBox";
-            this.ModsBox.Size = new System.Drawing.Size(100, 20);
-            this.ModsBox.TabIndex = 6;
-            this.ModsBox.Text = "Program Test";
+            this.TestTypeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestTypeBox.Location = new System.Drawing.Point(137, 65);
+            this.TestTypeBox.Name = "TestTypeBox";
+            this.TestTypeBox.Size = new System.Drawing.Size(100, 20);
+            this.TestTypeBox.TabIndex = 6;
+            this.TestTypeBox.Text = "Program Test";
             // 
             // ItemBox
             // 
@@ -707,7 +707,7 @@ namespace WindowsFormsApplication1
         private Label TestNameLabel;
         private Label label9;
         private TextBox TestNameBox;
-        private TextBox ModsBox;
+        private TextBox TestTypeBox;
         private Button exportDataButton;
         private TextBox TestNotesBox;
         private TextBox ItemBox;
