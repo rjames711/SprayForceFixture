@@ -1,0 +1,9 @@
+Application freezes around 700-800 datapoints when running for 100 seconds
+when running 10 second intervals froze around 15 or 16th run (1500 to 1600)
+works again when clear graph button is pushed. 
+
+need to try:
+
+Form1.Invalidate();
+or
+Form1.Refresh();
