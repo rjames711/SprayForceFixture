@@ -29,13 +29,14 @@ namespace WindowsFormsApplication1
         back dataSource; //should remove, redundant. only used in dowork then pass by ref to data
         int testInterval;
         int testNumber=0;
+        List<TestSession> tests = new List<TestSession>();
 
         public Form1()
         {
           
             InitializeComponent();
             this.availablePorts.Items.AddRange(getPorts());
-            UpdateDataBase();
+          //  UpdateDataBase();
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -66,11 +67,21 @@ namespace WindowsFormsApplication1
                 double graphPoint = count / 20.0;
                 ForceGraph.Series[testNumber].Points.AddXY(graphPoint, force-tare);
                 updateTestResults();
+                if(count==testInterval*20)
+                {
+                    tests.Add(new TestSession(data.forceValues, TestNameBox.Text,ItemBox.Text,"","",TesterBox.Text,TestNotesBox.Text));
+                    recording = false;
+                    data.recording = false;
+                }
             }
             else
             {
-                recording = false;
+                
             }
+
+
+
+
         }
 
         private void startTestButton_Click(object sender, EventArgs e)
@@ -192,11 +203,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         void UpdateDataBase()
         {
             Database1DataSet db = new Database1DataSet();
@@ -208,6 +214,11 @@ namespace WindowsFormsApplication1
             
         }
 
+        private void exportData_Click(object sender, EventArgs e)
+        {
+            foreach (TestSession test in tests)
+                test.writeTest();
+        }
     }
 
 

@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
         string comPort;
         double taredForce = 0;
         int delay = 600;  //delay for dumb for loop to fun and space out reading properly because all of microsoft solutions are terrible for millisecond level timing
-        int dataSmoothing = 40; //number of datapoint to collect and average before reporting back force.
+        int dataSmoothing = 20; //number of datapoint to collect and average before reporting back force.
         //Hi I'm newly cleaned code!
 
         public double getCurrentForce()
@@ -62,7 +62,6 @@ namespace WindowsFormsApplication1
             double force = (sum / dataSmoothing) * 1;
             if (recording)
             {
-
                 forceValues.Add(force);
             }
             currentForce = force;
