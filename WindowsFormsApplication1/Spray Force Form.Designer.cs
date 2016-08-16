@@ -465,7 +465,7 @@ namespace WindowsFormsApplication1
             this.timeInputControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.timeInputControl.Size = new System.Drawing.Size(110, 26);
             this.timeInputControl.TabIndex = 7;
-            this.timeInputControl.Text = "2";
+            this.timeInputControl.Text = "10";
             // 
             // ForceReadingLabel
             // 
@@ -587,7 +587,7 @@ namespace WindowsFormsApplication1
             this.TestNameBox.Name = "TestNameBox";
             this.TestNameBox.Size = new System.Drawing.Size(100, 20);
             this.TestNameBox.TabIndex = 5;
-            this.TestNameBox.Text = "SampleTest";
+            this.TestNameBox.Text = "Test1";
             // 
             // label3
             // 

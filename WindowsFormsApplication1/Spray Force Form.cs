@@ -66,6 +66,10 @@ namespace WindowsFormsApplication1
                 DataPointsLabel.Text = count.ToString();
                 double graphPoint = count / 20.0;
                 ForceGraph.Series[testNumber].Points.AddXY(graphPoint, force);
+                if (force > ForceGraph.ChartAreas[0].AxisY.Maximum)
+                    ForceGraph.ChartAreas[0].AxisY.Maximum = Math.Round(force)+1;
+                if (force < ForceGraph.ChartAreas[0].AxisY.Minimum)
+                    ForceGraph.ChartAreas[0].AxisY.Minimum = Math.Round(force) - 1;
                 updateTestResults();
                 if(count==testInterval*20)
                 {
