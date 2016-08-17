@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,7 @@ namespace WindowsFormsApplication1
         double taredForce = 0;
         int delay = 600;  //delay for dumb for loop to fun and space out reading properly because all of microsoft solutions are terrible for millisecond level timing
         int dataSmoothing = 20; //number of datapoint to collect and average before reporting back force.
+        Stopwatch timer = new Stopwatch();
         //Hi I'm newly cleaned code!
 
         public double getCurrentForce()
@@ -57,7 +59,11 @@ namespace WindowsFormsApplication1
             double sum = 0;
             for (int i = 0; i < dataSmoothing; i++)
             {
+                timer.Start();
                 sum += getForce();
+                while (timer.Elapsed.TotalMilliseconds < 5) ;
+                timer.Reset();
+              
             }
             currentForce = (sum / dataSmoothing); //need to maintain raw force reading for tare function to work.
             taredForce = currentForce - tare;
@@ -115,7 +121,7 @@ namespace WindowsFormsApplication1
                     reading = mySerialPort.ReadExisting();
 
                 }
-                dumbDelay(delay);
+               // dumbDelay(delay);
                 return reading;
             }
             catch

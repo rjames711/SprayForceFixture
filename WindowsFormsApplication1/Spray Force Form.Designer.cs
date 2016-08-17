@@ -83,6 +83,7 @@ namespace WindowsFormsApplication1
             this.ItemBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.TesterBox = new System.Windows.Forms.TextBox();
+            this.refreshButton = new System.Windows.Forms.Button();
             datapoints = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.ForceGraph)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -465,7 +466,7 @@ namespace WindowsFormsApplication1
             this.timeInputControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.timeInputControl.Size = new System.Drawing.Size(110, 26);
             this.timeInputControl.TabIndex = 7;
-            this.timeInputControl.Text = "10";
+            this.timeInputControl.Text = "100";
             // 
             // ForceReadingLabel
             // 
@@ -542,6 +543,7 @@ namespace WindowsFormsApplication1
             this.tableLayoutPanel3.Controls.Add(this.ItemBox, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.label9, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.TesterBox, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.refreshButton, 3, 2);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 18);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -641,6 +643,16 @@ namespace WindowsFormsApplication1
             this.TesterBox.TabIndex = 13;
             this.TesterBox.Text = "Rob";
             // 
+            // refreshButton
+            // 
+            this.refreshButton.Location = new System.Drawing.Point(405, 65);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(75, 23);
+            this.refreshButton.TabIndex = 14;
+            this.refreshButton.Text = "refresh";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -714,6 +726,7 @@ namespace WindowsFormsApplication1
         private Label label3;
         private Label label10;
         private TextBox TesterBox;
+        private Button refreshButton;
     }
 }
 

@@ -23,6 +23,7 @@ namespace WindowsFormsApplication1
         bool recording=false;
         bool startButton;
         back data;
+        double dps=10;
   
         System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
         int precision = 1;
@@ -60,18 +61,18 @@ namespace WindowsFormsApplication1
             int count = data.forceValues.Count();
 
 
-            if (recording && count>0 && count<=testInterval*20 )
+            if (recording && count>0 && count<=testInterval*dps )
             {
                 listBox1.Items.Add(formatForDisplay(data.forceValues.Last<double>()));
                 DataPointsLabel.Text = count.ToString();
-                double graphPoint = count / 20.0;
+                double graphPoint = (count / dps)-(1/dps); // subtraction here eliminates annoying offset at beginning of graph
                 ForceGraph.Series[testNumber].Points.AddXY(graphPoint, force);
                 if (force > ForceGraph.ChartAreas[0].AxisY.Maximum)
                     ForceGraph.ChartAreas[0].AxisY.Maximum = Math.Round(force)+1;
                 if (force < ForceGraph.ChartAreas[0].AxisY.Minimum)
                     ForceGraph.ChartAreas[0].AxisY.Minimum = Math.Round(force) - 1;
                 updateTestResults();
-                if(count==testInterval*20)
+                if(count==testInterval*dps)
                 {
                     tests.Add(new TestSession(data.forceValues, TestNameBox.Text,ItemBox.Text,data.unit,"","",TestTypeBox.Text,TesterBox.Text,TestNotesBox.Text));
                     recording = false;
@@ -164,9 +165,19 @@ namespace WindowsFormsApplication1
 
         void updateTestResults()
         {
-            averageForceLabel.Text = formatForDisplay(data.forceValues.Average());
-            MaxForceLabel.Text = formatForDisplay(data.forceValues.Max());
-            MinForceLabel.Text = formatForDisplay(data.forceValues.Min());
+            this.Invalidate();
+            this.Refresh();
+            try
+            {
+                string average = formatForDisplay(data.forceValues.Average());
+                averageForceLabel.Text = average;
+                MaxForceLabel.Text = formatForDisplay(data.forceValues.Max());
+                MinForceLabel.Text = formatForDisplay(data.forceValues.Min());
+            }
+            catch
+            {
+                MessageBox.Show("caught thread exception");
+            }
             
         }
 
@@ -236,6 +247,12 @@ namespace WindowsFormsApplication1
         {
             foreach (TestSession test in tests)
                 test.writeTest();
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            this.Invalidate();
+            this.Refresh();
         }
     }
 
