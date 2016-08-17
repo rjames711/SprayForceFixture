@@ -54,16 +54,13 @@ namespace WindowsFormsApplication1
 
         public double getsmoothedForce()
         {
-
-
             double sum = 0;
             for (int i = 0; i < dataSmoothing; i++)
             {
                 timer.Start();
                 sum += getForce();
-                while (timer.Elapsed.TotalMilliseconds < 5) ;
-                timer.Reset();
-              
+                while (timer.Elapsed.TotalMilliseconds < 5) ; //Timing occurs here.
+                timer.Reset();             
             }
             currentForce = (sum / dataSmoothing); //need to maintain raw force reading for tare function to work.
             taredForce = currentForce - tare;

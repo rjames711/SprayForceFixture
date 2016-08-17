@@ -245,8 +245,16 @@ namespace WindowsFormsApplication1
 
         private void exportData_Click(object sender, EventArgs e)
         {
-            foreach (TestSession test in tests)
-                test.writeTest();
+            try
+            {
+                foreach (TestSession test in tests)
+                    test.writeTest();
+                tests.Clear();
+            }
+            catch
+            {
+                MessageBox.Show("Data Export Unsuccessful. Is file open?");
+            }
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
