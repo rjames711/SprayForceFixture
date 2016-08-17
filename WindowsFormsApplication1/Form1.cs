@@ -34,7 +34,7 @@ namespace WindowsFormsApplication1
 
         public Form1()
         {
-          
+            
             InitializeComponent();
             this.availablePorts.Items.AddRange(getPorts());
           //  UpdateDataBase();

@@ -26,7 +26,7 @@ namespace WindowsFormsApplication1
         //Hi I'm newly cleaned code!
 
         public double getCurrentForce()
-        {
+        {            
             return currentForce;
         }
         public double getTaredForce()
