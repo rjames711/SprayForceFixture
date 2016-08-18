@@ -20,8 +20,9 @@ namespace WindowsFormsApplication1
         public double tare = 0;
         string comPort;
         double taredForce = 0;
-        int delay = 600;  //delay for dumb for loop to fun and space out reading properly because all of microsoft solutions are terrible for millisecond level timing
-        int dataSmoothing = 20; //number of datapoint to collect and average before reporting back force.
+        double dataTiming = 5; //milliseconds between datasamplings
+        public double dps = 10;       //number of front end averaged datapoints
+        double dataSmoothing; //number of datapoint to collect and average before reporting back force.
         Stopwatch timer = new Stopwatch();
         //Hi I'm newly cleaned code!
 
@@ -48,7 +49,7 @@ namespace WindowsFormsApplication1
             Console.WriteLine(comPort);
             this.comPort = comPort;
             connectPort(comPort);
-
+            dataSmoothing = 1000 / (dps * dataTiming);
         }
 
 
@@ -138,11 +139,6 @@ namespace WindowsFormsApplication1
             return sum;
         }
 
-        public void dumbDelay(int delay)
-        {
-            delay *= 1000;
-            for (; delay > 0; delay--) ;
-        }
 
         public bool hasConnection()
         {

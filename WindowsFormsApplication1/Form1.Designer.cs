@@ -41,7 +41,7 @@ namespace WindowsFormsApplication1
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.imageListLarge = new System.Windows.Forms.ImageList(this.components);
             this.imageListSmall = new System.Windows.Forms.ImageList(this.components);
-            this.force = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.forceHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -84,6 +84,7 @@ namespace WindowsFormsApplication1
             this.label9 = new System.Windows.Forms.Label();
             this.TesterBox = new System.Windows.Forms.TextBox();
             this.refreshButton = new System.Windows.Forms.Button();
+            this.debugButton = new System.Windows.Forms.Button();
             datapoints = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.ForceGraph)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -111,9 +112,9 @@ namespace WindowsFormsApplication1
             this.imageListSmall.ImageSize = new System.Drawing.Size(16, 16);
             this.imageListSmall.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // force
+            // forceHeader
             // 
-            this.force.Text = "Force";
+            this.forceHeader.Text = "Force";
             // 
             // backgroundWorker1
             // 
@@ -535,6 +536,7 @@ namespace WindowsFormsApplication1
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.tableLayoutPanel3.Controls.Add(this.debugButton, 3, 1);
             this.tableLayoutPanel3.Controls.Add(this.label10, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.TestNameLabel, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.TestNameBox, 1, 0);
@@ -653,6 +655,16 @@ namespace WindowsFormsApplication1
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
+            // debugButton
+            // 
+            this.debugButton.Location = new System.Drawing.Point(405, 34);
+            this.debugButton.Name = "debugButton";
+            this.debugButton.Size = new System.Drawing.Size(75, 23);
+            this.debugButton.TabIndex = 19;
+            this.debugButton.Text = "debug";
+            this.debugButton.UseVisualStyleBackColor = true;
+            this.debugButton.Click += new System.EventHandler(this.debugButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -682,7 +694,7 @@ namespace WindowsFormsApplication1
         }
 
         #endregion
-        private System.Windows.Forms.ColumnHeader force;
+        private System.Windows.Forms.ColumnHeader forceHeader;
         private ImageList imageListLarge;
         private ImageList imageListSmall;
         private System.IO.Ports.SerialPort serialPort1;
@@ -727,6 +739,7 @@ namespace WindowsFormsApplication1
         private Label label10;
         private TextBox TesterBox;
         private Button refreshButton;
+        private Button debugButton;
     }
 }
 

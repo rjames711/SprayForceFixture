@@ -16,12 +16,7 @@ namespace WindowsFormsApplication1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Form2 graph =new Form2();
-            //graph.Show();
             Application.Run(new Form1());
-            
-            
-
 
         }
     }
