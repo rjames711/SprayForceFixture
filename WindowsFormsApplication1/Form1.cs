@@ -37,110 +37,20 @@ namespace WindowsFormsApplication1
         string minForce;
         string maxForce;
         List<TestSession> tests = new List<TestSession>();
-        Thread updateChartThread;
+        //  System.Windows.Forms.Timer refreshTimer; 
 
         public Form1()
         {
 
             InitializeComponent();
             this.availablePorts.Items.AddRange(getPorts());
-            updateChartThread = new Thread(updateChart);
-//           averageForce = averageForceLabel.Text;
-//            minForce = MinForceLabel.Text;
-//            maxForce = MaxForceLabel.Text;            
-        }
-    void updateChart()
-        {
-
-        }
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-
-           back datas = new back(e.Argument.ToString());
-           backgroundWorker1.ReportProgress(1, datas);
-            while (startButton)
-            {     
-                updateValues();
-                
-                backgroundWorker1.ReportProgress(1, data);
-            }
-            Console.WriteLine("exiting thread");
-        }
-
-        private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            this.data = e.UserState as back;
-            updateUI();
-
-            if (recording && count == testInterval * data.dps)
-            {
-                resetTest();
-            }
-
-        }
-        void updateValues()
-        {
-            data.getsmoothedForce();
-            force = data.getTaredForce();
-            count = data.forceValues.Count();
-            UI_Force = formatForDisplay(force);
-            if (recording && count > 0 && count <= testInterval * data.dps)
-            {
-                averageForce = formatForDisplay(data.forceValues.Average());
-                maxForce = formatForDisplay(data.forceValues.Max());
-                minForce = formatForDisplay(data.forceValues.Min());
-                force = data.forceValues.Last<double>();
-                graphPoint = (count / data.dps) - (1 / data.dps);  // subtraction here eliminates annoying offset at beginning of graph
-                UI_Force = formatForDisplay(force);
-
-              
-            }
-        }
-
-        void updateUI()
-        {
-            //None of the following fix unresponsive window issue
-            //  this.Invalidate();
-            //  this.Refresh();
-            //Application.DoEvents();
-            ForceReadingLabel.Text = formatForDisplay(force);
-            if (recording && count > 0 && count <= testInterval * data.dps)
-            {
-                listBox1.Items.Add(UI_Force);
-                averageForceLabel.Text = averageForce;
-                MaxForceLabel.Text = maxForce;
-                MinForceLabel.Text = minForce;
-                DataPointsLabel.Text = count.ToString();
-                ForceGraph.Series[testNumber].Points.SuspendUpdates();
-                if (count ==100)
-                    ForceGraph.Series[testNumber].Points.ResumeUpdates();
-                ForceGraph.Series[testNumber].Points.AddXY(graphPoint, force);
-                if (force > ForceGraph.ChartAreas[0].AxisY.Maximum)
-                    ForceGraph.ChartAreas[0].AxisY.Maximum = Math.Round(force) + 1;
-                if (force < ForceGraph.ChartAreas[0].AxisY.Minimum)
-                    ForceGraph.ChartAreas[0].AxisY.Minimum = Math.Round(force) - 1;
-                ForceGraph.Series[testNumber].Points.ResumeUpdates();
-              
-        
-                //ForceGraph.Series[testNumber].Points.DataBindXY(data.forceValues);
-            }
-        }
-
-        void resetTest()
-        {
-            tests.Add(new TestSession(data.forceValues, TestNameBox.Text, ItemBox.Text, data.unit, "", "", TestTypeBox.Text, TesterBox.Text, TestNotesBox.Text));
-            recording = false;
-            data.recording = false;
-            startTestButton.Text = "Start Test";
         }
 
         private void startTestButton_Click(object sender, EventArgs e)
         {
             if (!hasConnection())
                 return;
-
-            recording = !recording;
-            data.recording = recording;
+            timer1.Interval = Convert.ToInt32(1000 / data.dps);
             testInterval = int.Parse(timeInputControl.Text);
             if (testInterval > 10)
             {
@@ -149,23 +59,29 @@ namespace WindowsFormsApplication1
             }
             if (recording)
             {
-                startTestButton.Text = "Stop Test";
-                testNumber++;
-                ForceGraph.Series.Add("Test " + testNumber.ToString());
-                ForceGraph.Series[testNumber].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+                resetTest();
+                startTestButton.Text = "Start Test";
+                timer1.Stop();
+                
             }
 
             else
             {
-                startTestButton.Text = "Start Test";
-                //not recording means test was stopped early. Adds test to results.
-                tests.Add(new TestSession(data.forceValues, TestNameBox.Text, ItemBox.Text, data.unit, "", "", TestTypeBox.Text, TesterBox.Text, TestNotesBox.Text));
+              //  ForceGraph.Series[testNumber].Points.ToList().ForEach(i => Console.WriteLine(i.ToString())); 
+                testNumber++;
+                ForceGraph.Series.Add("Test " + testNumber.ToString());
+                ForceGraph.Series[testNumber].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+                recording = true;
+                data.recording = true;                
+                startTestButton.Text = "Stop Test";
+                timer1.Start();
+                // recording means test was stopped early. Adds test to results.
+                //tests.Add(new TestSession(data.forceValues, TestNameBox.Text, ItemBox.Text, data.unit, "", "", TestTypeBox.Text, TesterBox.Text, TestNotesBox.Text));
             }
             listBox1.Items.Clear();
             data.forceValues.Clear();
-
-
         }
+
         private void ConnectButton_Click(object sender, EventArgs e)
         {
             startButton = !startButton;
@@ -189,7 +105,7 @@ namespace WindowsFormsApplication1
             else
             {
                 ConnectButton.Text = "Connect";
-                data = null;                
+                data = null;
             }
 
         }
@@ -198,7 +114,6 @@ namespace WindowsFormsApplication1
             if (hasConnection())
                 data.tare = data.getCurrentForce();
         }
-
 
         void recordSwitch(object sender, EventArgs e)
         {
@@ -277,6 +192,11 @@ namespace WindowsFormsApplication1
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
+            refresh();
+        }
+
+        private void refresh()
+        {
             this.Invalidate();
             this.Refresh();
         }
@@ -284,6 +204,13 @@ namespace WindowsFormsApplication1
         private void debugButton_Click(object sender, EventArgs e)
         {
             averageForceLabel.Text = "franks";
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (recording)
+                updateGraph();
+     //       Console.WriteLine(DateTime.Now.ToString());
         }
     }
 

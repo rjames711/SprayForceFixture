@@ -7,3 +7,14 @@ need to try:
 Form1.Invalidate();
 or
 Form1.Refresh();
+
+8-18-16 3:40
+
+at a data speed of 40 per second 10 minute test (600 second 24000 datapoints)
+took 608 seconds. UI was slow to update at end but did end with correct number of 
+points and updated throughout. Says 53 MB memory. Did not lower when I exported data or cleared graph. Oddly now its
+starting with about 41 MB
+
+at 10 dps UI is updating at regular rate for at least the first 60 seconds. at 600 seconds seems to be updating at 
+2-3 times per second. Missed the ending but it looked like it was keeping somewhat better time (within 3 seconds) than the last
+test.
