@@ -59,24 +59,10 @@ namespace WindowsFormsApplication1
         /// </summary>
         public void writeTest(string root)
         {
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(root+"\\"+testName+".csv", true))
+            using (System.IO.StreamWriter file = 
+                new System.IO.StreamWriter(root+"\\"+testName+".csv", true))
             {
-                file.WriteLine("Test Name,Item,Date,Time,Tester,Units,Notes");
-                file.Write(testName+",");
-                file.Write(item+", ");
-                file.Write(dateAndTime[0]+", ");
-                file.Write(dateAndTime[1] + " ,");
-                file.Write(tester+",");
-                file.Write(units + ",");
-                file.Write(testNotes+",");
-                file.WriteLine();
-                file.WriteLine("Test Length:,,"+dataPoints/10+",DataPoints:,,"+dataPoints);
-                file.WriteLine();
-                file.Write("Measured Flow:,," + measuredFlow);
-                file.WriteLine(",Measured Pressure:,," + measuredPressure);
-                file.WriteLine("Average Force:,," + averageForce);
-                file.WriteLine("Max Force:,," + maxForce);
-                file.WriteLine("Min Force:,," + minForce);         
+                writedetails(file);
             }
         }
         /// <summary>
@@ -87,10 +73,11 @@ namespace WindowsFormsApplication1
         public void writeLongTest(string root)
         {
 
-            writeTest(root);
+            
             using (System.IO.StreamWriter file = 
                 new System.IO.StreamWriter(root +"\\"+ testName + "(full).csv", true))
             {
+                writedetails(file);
                 int i = 0;
                 foreach (double value in values)
                 {
@@ -98,6 +85,25 @@ namespace WindowsFormsApplication1
                     file.WriteLine(value);
                 }
             }
+        }
+        public void writedetails(System.IO.StreamWriter file)
+        {
+            file.WriteLine();
+            file.WriteLine("Test Name,Item,Date,Time,Tester,Units,Notes");
+            file.Write(testName + ",");
+            file.Write(item + ", ");
+            file.Write(dateAndTime[0] + ", ");
+            file.Write(dateAndTime[1] + " ,");
+            file.Write(tester + ",");
+            file.Write(units + ",");
+            file.Write(testNotes + ",");
+            file.WriteLine();
+            file.WriteLine("Test Length:,," + Convert.ToDouble(dataPoints / 10.0).ToString("N1") +" s"+ ",DataPoints:,," + dataPoints);
+            file.Write("Measured Flow:,," + measuredFlow);
+            file.WriteLine(",Measured Pressure:,," + measuredPressure);
+            file.WriteLine("Average Force:,," + averageForce);
+            file.WriteLine("Max Force:,," + maxForce);
+            file.WriteLine("Min Force:,," + minForce);
         }
 
     }
