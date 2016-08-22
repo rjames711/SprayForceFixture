@@ -49,11 +49,20 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             this.availablePorts.Items.AddRange(getPorts());
-            exportLocationBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString();
+            //creates a default location for spray force results 
+            //if it doesn't  exist in user documents library.
+            string defaultPath =
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString()
+                + "\\Spray Force Data").FullName;
+            exportLocationBox.Text = defaultPath;
+            
         }
 
         private void startTestButton_Click(object sender, EventArgs e)
         {
+           
+
+
             if (!hasConnection())
                 return;
             timer1.Interval = Convert.ToInt32(1000 / data.dps);
@@ -72,6 +81,11 @@ namespace WindowsFormsApplication1
 
             else
             {
+
+                DialogResult result= MessageBox.Show(
+                   "Is Test information Correct?\r\nYes to continue.\r\nNo to stop and edit.", "Check Test Info", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                    return;
                 startNewTest();
             }
             listBox1.Items.Clear();

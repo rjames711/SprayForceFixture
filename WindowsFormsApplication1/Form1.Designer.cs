@@ -74,17 +74,19 @@ namespace WindowsFormsApplication1
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.exportLocationBox = new System.Windows.Forms.TextBox();
-            this.TestNotesBox = new System.Windows.Forms.TextBox();
             this.exportDataButton = new System.Windows.Forms.Button();
+            this.TestNotesBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.TestNameLabel = new System.Windows.Forms.Label();
             this.TestNameBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.TestTypeBox = new System.Windows.Forms.TextBox();
+            this.MeasureFlowBox = new System.Windows.Forms.TextBox();
             this.ItemBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.TesterBox = new System.Windows.Forms.TextBox();
+            this.MeasuredPressureBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             datapoints = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.ForceGraph)).BeginInit();
@@ -531,16 +533,6 @@ namespace WindowsFormsApplication1
             this.exportLocationBox.TabIndex = 19;
             this.exportLocationBox.Text = "My Documents";
             // 
-            // TestNotesBox
-            // 
-            this.TestNotesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestNotesBox.Location = new System.Drawing.Point(275, 50);
-            this.TestNotesBox.Multiline = true;
-            this.TestNotesBox.Name = "TestNotesBox";
-            this.TestNotesBox.Size = new System.Drawing.Size(265, 60);
-            this.TestNotesBox.TabIndex = 18;
-            this.TestNotesBox.Text = "Test Notes";
-            // 
             // exportDataButton
             // 
             this.exportDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -551,6 +543,16 @@ namespace WindowsFormsApplication1
             this.exportDataButton.Text = "Export Data";
             this.exportDataButton.UseVisualStyleBackColor = true;
             this.exportDataButton.Click += new System.EventHandler(this.exportData_Click);
+            // 
+            // TestNotesBox
+            // 
+            this.TestNotesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestNotesBox.Location = new System.Drawing.Point(275, 83);
+            this.TestNotesBox.Multiline = true;
+            this.TestNotesBox.Name = "TestNotesBox";
+            this.TestNotesBox.Size = new System.Drawing.Size(265, 27);
+            this.TestNotesBox.TabIndex = 18;
+            this.TestNotesBox.Text = "Test Notes";
             // 
             // tableLayoutPanel3
             // 
@@ -563,10 +565,12 @@ namespace WindowsFormsApplication1
             this.tableLayoutPanel3.Controls.Add(this.TestNameLabel, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.TestNameBox, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.TestTypeBox, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.MeasureFlowBox, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.ItemBox, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.label9, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.TesterBox, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label9, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.TesterBox, 3, 1);
+            this.tableLayoutPanel3.Controls.Add(this.MeasuredPressureBox, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label11, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 18);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -589,7 +593,7 @@ namespace WindowsFormsApplication1
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(128, 25);
             this.label10.TabIndex = 12;
-            this.label10.Text = "Test Type";
+            this.label10.Text = "Measured Flow";
             // 
             // TestNameLabel
             // 
@@ -628,14 +632,13 @@ namespace WindowsFormsApplication1
             this.label3.TabIndex = 10;
             this.label3.Text = "Shower Head ";
             // 
-            // TestTypeBox
+            // MeasureFlowBox
             // 
-            this.TestTypeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestTypeBox.Location = new System.Drawing.Point(137, 65);
-            this.TestTypeBox.Name = "TestTypeBox";
-            this.TestTypeBox.Size = new System.Drawing.Size(100, 20);
-            this.TestTypeBox.TabIndex = 6;
-            this.TestTypeBox.Text = "Program Test";
+            this.MeasureFlowBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MeasureFlowBox.Location = new System.Drawing.Point(137, 65);
+            this.MeasureFlowBox.Name = "MeasureFlowBox";
+            this.MeasureFlowBox.Size = new System.Drawing.Size(100, 20);
+            this.MeasureFlowBox.TabIndex = 6;
             // 
             // ItemBox
             // 
@@ -650,7 +653,7 @@ namespace WindowsFormsApplication1
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(271, 3);
+            this.label9.Location = new System.Drawing.Point(271, 34);
             this.label9.Margin = new System.Windows.Forms.Padding(3);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(108, 15);
@@ -660,11 +663,30 @@ namespace WindowsFormsApplication1
             // TesterBox
             // 
             this.TesterBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TesterBox.Location = new System.Drawing.Point(405, 3);
+            this.TesterBox.Location = new System.Drawing.Point(405, 34);
             this.TesterBox.Name = "TesterBox";
             this.TesterBox.Size = new System.Drawing.Size(100, 20);
             this.TesterBox.TabIndex = 13;
             this.TesterBox.Text = "Rob";
+            // 
+            // MeasuredPressureBox
+            // 
+            this.MeasuredPressureBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MeasuredPressureBox.Location = new System.Drawing.Point(405, 3);
+            this.MeasuredPressureBox.Name = "MeasuredPressureBox";
+            this.MeasuredPressureBox.Size = new System.Drawing.Size(100, 20);
+            this.MeasuredPressureBox.TabIndex = 13;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(271, 3);
+            this.label11.Margin = new System.Windows.Forms.Padding(3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(115, 15);
+            this.label11.TabIndex = 3;
+            this.label11.Text = "Measured Pressure";
             // 
             // timer1
             // 
@@ -680,6 +702,7 @@ namespace WindowsFormsApplication1
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Spray Force Interface";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ForceGraph)).EndInit();
@@ -734,9 +757,8 @@ namespace WindowsFormsApplication1
         private GroupBox groupBox3;
         private TableLayoutPanel tableLayoutPanel3;
         private Label TestNameLabel;
-        private Label label9;
         private TextBox TestNameBox;
-        private TextBox TestTypeBox;
+        private TextBox MeasureFlowBox;
         private Button exportDataButton;
         private TextBox TestNotesBox;
         private TextBox ItemBox;
@@ -746,6 +768,9 @@ namespace WindowsFormsApplication1
         private Timer timer1;
         private TextBox exportLocationBox;
         private Button button1;
+        private Label label9;
+        private TextBox MeasuredPressureBox;
+        private Label label11;
     }
 }
 

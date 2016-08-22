@@ -28,9 +28,10 @@ namespace WindowsFormsApplication1
         int dataPoints;
         string timeStamp;
         string[] dateAndTime;
+        string measuredPressure;
 
 
-        public TestSession(List<double> values,string testName, string item,string units, string flowRate, string measuredFlow, string testType, string tester, string testNotes )
+        public TestSession(List<double> values,string testName, string item,string units, string flowRate, string measuredFlow, string measuredPressure, string tester, string testNotes )
         {
             this.values = new List<double>(values);// need to clone list so it doesn't maintain object reference.
             this.item = item;
@@ -43,8 +44,9 @@ namespace WindowsFormsApplication1
             this.maxForce = values.Max();
             this.minForce = values.Min();
             this.dataPoints = values.Count;
-            this.testType = testType;
+            this.testType = measuredPressure;
             this.units = units;
+            this.measuredPressure = measuredPressure;
             DateTime time = DateTime.Now;
             timeStamp = time.ToString();
             dateAndTime = timeStamp.Split(' ');
@@ -68,6 +70,10 @@ namespace WindowsFormsApplication1
                 file.Write(units + ",");
                 file.Write(testNotes+",");
                 file.WriteLine();
+                file.WriteLine("Test Length:,,"+dataPoints/10+",DataPoints:,,"+dataPoints);
+                file.WriteLine();
+                file.Write("Measured Flow:,," + measuredFlow);
+                file.WriteLine(",Measured Pressure:,," + measuredPressure);
                 file.WriteLine("Average Force:,," + averageForce);
                 file.WriteLine("Max Force:,," + maxForce);
                 file.WriteLine("Min Force:,," + minForce);         
@@ -80,24 +86,11 @@ namespace WindowsFormsApplication1
 
         public void writeLongTest(string root)
         {
-            
 
+            writeTest(root);
             using (System.IO.StreamWriter file = 
                 new System.IO.StreamWriter(root +"\\"+ testName + "(full).csv", true))
             {
-                file.WriteLine("Test Name,Item,Date,Time,Tester,Units,Notes");
-                file.Write(testName + ",");
-                file.Write(item + ", ");
-                file.Write(dateAndTime[0] + ", ");
-                file.Write(dateAndTime[1] + " ,");
-                file.Write(tester + ",");
-                file.Write(units + ",");
-                file.Write(testNotes + ",");
-                file.WriteLine();
-                file.WriteLine("Average Force:,," + averageForce);
-                file.WriteLine("Max Force:,," + maxForce);
-                file.WriteLine("Min Force:,," + minForce);
-                file.WriteLine("DataPoint:,Values");
                 int i = 0;
                 foreach (double value in values)
                 {
