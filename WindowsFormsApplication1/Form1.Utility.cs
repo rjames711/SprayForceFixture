@@ -17,6 +17,11 @@ namespace WindowsFormsApplication1
 {
     partial class Form1
     {
+        /// <summary>
+        /// Main Background thread used to pull data and perform any calculations needed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
 
@@ -37,6 +42,11 @@ namespace WindowsFormsApplication1
             Console.WriteLine("exiting thread");
         }
 
+        /// <summary>
+        /// Recieves updates from background thread and updates UI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             this.data = e.UserState as back;
@@ -45,9 +55,12 @@ namespace WindowsFormsApplication1
             if(e.ProgressPercentage==2)
                 startTestButton.Text = "Start Test";
         }
+        /// <summary>
+        /// Prepares values needed to update the UI. Should be performed in backround thread. 
+        /// </summary>
         void updateValues()
         {
-            data.getsmoothedForce();
+            data.getDataPoint();
             force = data.getTaredForce();
             count = data.forceValues.Count();
             UI_Force = formatForDisplay(force);
@@ -61,7 +74,10 @@ namespace WindowsFormsApplication1
                 UI_Force = formatForDisplay(force);
             }
         }
-
+        /// <summary>
+        /// Updates the UI with values provided by the updateValues method. Needs to be performed 
+        /// by main UI thread.
+        /// </summary>
         void updateUI()
         {
             ForceReadingLabel.Text = formatForDisplay(force);
@@ -96,12 +112,55 @@ namespace WindowsFormsApplication1
 
         }
 
+        /// <summary>
+        /// Stops recording of a test and enters a new testsession entry with the results.
+        /// Should occur from test time ending or user pressing stop button.
+        /// </summary>
         void resetTest()
         {
             tests.Add(new TestSession(data.forceValues, TestNameBox.Text, ItemBox.Text, data.unit, "", "", TestTypeBox.Text, TesterBox.Text, TestNotesBox.Text));
             recording = false;
             data.recording = false;
             graphPoint = 0;           
+        }
+        /// <summary>
+        /// Connects to selected serial port and begins background thread 
+        /// collecting data from selected port.
+        /// </summary>
+        void Connect()
+        {
+
+            try
+            {
+                string port = availablePorts.SelectedItem.ToString();
+                backgroundWorker1.RunWorkerAsync(port);
+                ConnectButton.Text = "Disconnect";
+            }
+            catch
+            {
+                MessageBox.Show("Please select a Port", "Connection Error");
+                startButton = !startButton;
+            }
+        }
+        /// <summary>
+        /// Begins new test session.
+        /// </summary>
+        void startNewTest()
+        {
+            //  ForceGraph.Series[testNumber].Points.ToList().ForEach(i => Console.WriteLine(i.ToString())); 
+            testNumber++;
+            ForceGraph.Series.Add("Test " + testNumber.ToString());
+            ForceGraph.Series[testNumber].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            recording = true;
+            data.recording = true;
+            startTestButton.Text = "Stop Test";
+            timer1.Start();
+            // recording means test was stopped early. Adds test to results.
+            //tests.Add(new TestSession(data.forceValues, TestNameBox.Text, ItemBox.Text, data.unit, "", "", TestTypeBox.Text, TesterBox.Text, TestNotesBox.Text));
+        }
+        string getExportDataLocation()
+        {
+            return exportLocationBox.Text.ToString();
         }
     }
 }

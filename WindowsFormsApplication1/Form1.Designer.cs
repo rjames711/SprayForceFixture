@@ -72,6 +72,8 @@ namespace WindowsFormsApplication1
             this.ForceReadingLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.exportLocationBox = new System.Windows.Forms.TextBox();
             this.TestNotesBox = new System.Windows.Forms.TextBox();
             this.exportDataButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -466,7 +468,7 @@ namespace WindowsFormsApplication1
             this.timeInputControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.timeInputControl.Size = new System.Drawing.Size(110, 26);
             this.timeInputControl.TabIndex = 7;
-            this.timeInputControl.Text = "2";
+            this.timeInputControl.Text = "10";
             // 
             // ForceReadingLabel
             // 
@@ -494,8 +496,10 @@ namespace WindowsFormsApplication1
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.TestNotesBox);
+            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.exportLocationBox);
             this.groupBox3.Controls.Add(this.exportDataButton);
+            this.groupBox3.Controls.Add(this.TestNotesBox);
             this.groupBox3.Controls.Add(this.tableLayoutPanel3);
             this.groupBox3.Controls.Add(this.ClearGraphButton);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -507,24 +511,44 @@ namespace WindowsFormsApplication1
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Test Information";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(639, 60);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 20;
+            this.button1.Text = "Browse";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // exportLocationBox
+            // 
+            this.exportLocationBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exportLocationBox.Location = new System.Drawing.Point(558, 88);
+            this.exportLocationBox.Name = "exportLocationBox";
+            this.exportLocationBox.Size = new System.Drawing.Size(342, 20);
+            this.exportLocationBox.TabIndex = 19;
+            this.exportLocationBox.Text = "My Documents";
+            // 
             // TestNotesBox
             // 
             this.TestNotesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestNotesBox.Location = new System.Drawing.Point(556, 20);
+            this.TestNotesBox.Location = new System.Drawing.Point(275, 50);
             this.TestNotesBox.Multiline = true;
             this.TestNotesBox.Name = "TestNotesBox";
-            this.TestNotesBox.Size = new System.Drawing.Size(255, 82);
+            this.TestNotesBox.Size = new System.Drawing.Size(265, 60);
             this.TestNotesBox.TabIndex = 18;
             this.TestNotesBox.Text = "Test Notes";
             // 
             // exportDataButton
             // 
             this.exportDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exportDataButton.Location = new System.Drawing.Point(828, 44);
+            this.exportDataButton.Location = new System.Drawing.Point(558, 59);
             this.exportDataButton.Name = "exportDataButton";
             this.exportDataButton.Size = new System.Drawing.Size(75, 25);
             this.exportDataButton.TabIndex = 17;
-            this.exportDataButton.Text = "export data";
+            this.exportDataButton.Text = "Export Data";
             this.exportDataButton.UseVisualStyleBackColor = true;
             this.exportDataButton.Click += new System.EventHandler(this.exportData_Click);
             // 
@@ -720,6 +744,8 @@ namespace WindowsFormsApplication1
         private Label label10;
         private TextBox TesterBox;
         private Timer timer1;
+        private TextBox exportLocationBox;
+        private Button button1;
     }
 }
 

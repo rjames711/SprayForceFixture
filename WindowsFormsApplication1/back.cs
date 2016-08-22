@@ -21,10 +21,10 @@ namespace WindowsFormsApplication1
         string comPort;
         double taredForce = 0;
         double dataTiming = 5; //milliseconds between datasamplings
-        public double dps = 10;       //number of front end averaged datapoints
+        public double dps = 10;       //number of front end datapoints per second
         double dataSmoothing; //number of datapoint to collect and average before reporting back force.
         Stopwatch timer = new Stopwatch();
-        //Hi I'm newly cleaned code!
+ 
 
         public double getCurrentForce()
         {            
@@ -40,10 +40,7 @@ namespace WindowsFormsApplication1
             this.startButton = s;
         }
 
-        public back()
-        {
-
-        }
+ 
         public back(string comPort)
         {
             Console.WriteLine(comPort);
@@ -52,8 +49,12 @@ namespace WindowsFormsApplication1
             dataSmoothing = 1000 / (dps * dataTiming);
         }
 
-
-        public double getsmoothedForce()
+        /// <summary>
+        /// Makes timed calls to getForce() (# depends on dps and timing) averages the result. 
+        /// The averaged result returned is what the front end sees as a datapoint.
+        /// </summary>
+        /// <returns>The average force for the given number of force samples. .</returns>
+        public double getDataPoint()
         {
             double sum = 0;
             for (int i = 0; i < dataSmoothing; i++)
@@ -103,7 +104,7 @@ namespace WindowsFormsApplication1
                 rawRead = getReading();
 
             string[] reading = rawRead.Split(' ');
-            unit = reading[1];
+            unit = reading[1].Replace('\r', ' '); ;
             return double.Parse(reading[0]) * -1; //returns the double representation of the reading(inverting negative reading from gauge))
         }
 
@@ -144,6 +145,11 @@ namespace WindowsFormsApplication1
         {
             return mySerialPort.IsOpen;
  
+        }
+
+        public back()
+        {
+
         }
 
 

@@ -7,6 +7,10 @@ using System.Globalization;
 using System.IO;
 namespace WindowsFormsApplication1
 {
+    /// <summary>
+    /// Represents one session of testing. Contains all data points and any entered test data. Also contains methods 
+    /// to save data to csv files.
+    /// </summary>
     class TestSession
     {
         List<double> values;
@@ -47,10 +51,13 @@ namespace WindowsFormsApplication1
 
 
         }
-
-        public void writeTest()
+        /// <summary>
+        /// Writes test summary without full list of datapoints. 
+        /// Creates new file if name does't exist. Appends to file if does exist
+        /// </summary>
+        public void writeTest(string root)
         {
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\rames\Documents\"+testName+".csv", true))
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(root+"\\"+testName+".csv", true))
             {
                 file.WriteLine("Test Name,Item,Date,Time,Tester,Units,Notes");
                 file.Write(testName+",");
@@ -63,22 +70,42 @@ namespace WindowsFormsApplication1
                 file.WriteLine();
                 file.WriteLine("Average Force:,," + averageForce);
                 file.WriteLine("Max Force:,," + maxForce);
+                file.WriteLine("Min Force:,," + minForce);         
+            }
+        }
+        /// <summary>
+        /// Writes test results including full list of datapoints for graphing etc. 
+        /// Creates new file if name does't exist. Appends to file if does exist
+        /// </summary>
+
+        public void writeLongTest(string root)
+        {
+            
+
+            using (System.IO.StreamWriter file = 
+                new System.IO.StreamWriter(root +"\\"+ testName + "(full).csv", true))
+            {
+                file.WriteLine("Test Name,Item,Date,Time,Tester,Units,Notes");
+                file.Write(testName + ",");
+                file.Write(item + ", ");
+                file.Write(dateAndTime[0] + ", ");
+                file.Write(dateAndTime[1] + " ,");
+                file.Write(tester + ",");
+                file.Write(units + ",");
+                file.Write(testNotes + ",");
+                file.WriteLine();
+                file.WriteLine("Average Force:,," + averageForce);
+                file.WriteLine("Max Force:,," + maxForce);
                 file.WriteLine("Min Force:,," + minForce);
                 file.WriteLine("DataPoint:,Values");
                 int i = 0;
                 foreach (double value in values)
                 {
-                    file.Write(++i +",");
+                    file.Write(++i + ",");
                     file.WriteLine(value);
                 }
-                //for(int i =0; i<dataPoints;i++)
-                //{
-                //    file.Write((i+1) + ",");
-                //    file.WriteLine(values[i]);
-                //}
             }
         }
-
 
     }
 }

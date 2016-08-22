@@ -13,12 +13,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
 
+
+///in back class the # of sub data points is hard coded at 1 getforce  every 5 milliseconds. 
+///these are averaged for the data point that will be seen by user. So at 10 data.dps there will be 20
+///sub datapoints. At 20 data.dps there will be 10 sub datapoints and so on. 
+
 namespace WindowsFormsApplication1
-{
-    // need to make a switch function to toggle recording and button text whether stopped manually or from time out.
-    ///in back class the # of sub data points is hard coded at 1 getforce  every 5 milliseconds. 
-    ///these are averaged for the data point that will be seen by user. So at 10 data.dps there will be 20
-    ///sub datapoints. At 20 data.dps there will be 10 sub datapoints and so on. 
+{    
+    /// <summary>
+    /// Main Form, Class for project. Form1.cs includes mostlty methods for form event handling. Form1.Utilitly.cs contains all other 
+    /// customs methods 
+    /// </summary>
     public partial class Form1 : Form
     {
         //  double force;
@@ -36,14 +41,15 @@ namespace WindowsFormsApplication1
         string averageForce;
         string minForce;
         string maxForce;
+        string exportPath;
         List<TestSession> tests = new List<TestSession>();
         //  System.Windows.Forms.Timer refreshTimer; 
 
         public Form1()
         {
-
             InitializeComponent();
             this.availablePorts.Items.AddRange(getPorts());
+            exportLocationBox.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString();
         }
 
         private void startTestButton_Click(object sender, EventArgs e)
@@ -61,22 +67,12 @@ namespace WindowsFormsApplication1
             {
                 resetTest();
                 startTestButton.Text = "Start Test";
-                timer1.Stop();
-                
+                timer1.Stop();                
             }
 
             else
             {
-              //  ForceGraph.Series[testNumber].Points.ToList().ForEach(i => Console.WriteLine(i.ToString())); 
-                testNumber++;
-                ForceGraph.Series.Add("Test " + testNumber.ToString());
-                ForceGraph.Series[testNumber].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-                recording = true;
-                data.recording = true;                
-                startTestButton.Text = "Stop Test";
-                timer1.Start();
-                // recording means test was stopped early. Adds test to results.
-                //tests.Add(new TestSession(data.forceValues, TestNameBox.Text, ItemBox.Text, data.unit, "", "", TestTypeBox.Text, TesterBox.Text, TestNotesBox.Text));
+                startNewTest();
             }
             listBox1.Items.Clear();
             data.forceValues.Clear();
@@ -88,19 +84,7 @@ namespace WindowsFormsApplication1
 
             if (startButton)
             {
-
-                try
-                {
-                    string port = availablePorts.SelectedItem.ToString();
-                    backgroundWorker1.RunWorkerAsync(port);
-                    ConnectButton.Text = "Disconnect";
-                }
-                catch
-                {
-                    MessageBox.Show("Please select a Port", "Connection Error");
-                    startButton = !startButton;
-                }
-
+                Connect();
             }
             else
             {
@@ -178,10 +162,16 @@ namespace WindowsFormsApplication1
 
         private void exportData_Click(object sender, EventArgs e)
         {
+            string root = getExportDataLocation();
+            Console.WriteLine(root);
             try
             {
                 foreach (TestSession test in tests)
-                    test.writeTest();
+                {
+                    
+                    test.writeTest(root);
+                    test.writeLongTest(root);
+                }
                 tests.Clear();
             }
             catch
@@ -201,16 +191,18 @@ namespace WindowsFormsApplication1
             this.Refresh();
         }
 
-        private void debugButton_Click(object sender, EventArgs e)
-        {
-            averageForceLabel.Text = "franks";
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (recording)
                 updateGraph();
      //       Console.WriteLine(DateTime.Now.ToString());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog cf = new FolderBrowserDialog();
+            cf.ShowDialog();
+            exportLocationBox.Text = cf.SelectedPath;
         }
     }
 
