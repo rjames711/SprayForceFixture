@@ -72,8 +72,6 @@ namespace WindowsFormsApplication1
 
         public void writeLongTest(string root)
         {
-
-            
             using (System.IO.StreamWriter file = 
                 new System.IO.StreamWriter(root +"\\"+ testName + "(full).csv", true))
             {
@@ -86,6 +84,12 @@ namespace WindowsFormsApplication1
                 }
             }
         }
+  
+        /// <summary>
+        /// Writes the details of the test session into the file (minus the full datapoints list)
+        /// which is passed into the method.
+        /// </summary>
+        /// <param name="file"></param>
         public void writedetails(System.IO.StreamWriter file)
         {
             file.WriteLine();

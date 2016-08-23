@@ -54,15 +54,11 @@ namespace WindowsFormsApplication1
             string defaultPath =
                 Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString()
                 + "\\Spray Force Data").FullName;
-            exportLocationBox.Text = defaultPath;
-            
+            exportLocationBox.Text = defaultPath;            
         }
 
         private void startTestButton_Click(object sender, EventArgs e)
         {
-           
-
-
             if (!hasConnection())
                 return;
             timer1.Interval = Convert.ToInt32(1000 / data.dps);
@@ -78,10 +74,8 @@ namespace WindowsFormsApplication1
                 startTestButton.Text = "Start Test";
                 timer1.Stop();                
             }
-
             else
             {
-
                 DialogResult result= MessageBox.Show(
                    "Is Test information Correct?\r\nYes to continue.\r\nNo to stop and edit.", "Check Test Info", MessageBoxButtons.YesNo);
                 if (result == DialogResult.No)
@@ -145,6 +139,9 @@ namespace WindowsFormsApplication1
             {
                 ForceGraph.Series.RemoveAt(ForceGraph.Series.Count - 1);
             }
+            ForceGraph.ChartAreas[0].AxisX.Maximum = 10;
+            ForceGraph.ChartAreas[0].AxisY.Maximum = 10;
+            ForceGraph.ChartAreas[0].AxisY.Minimum=0;
             testNumber = 0;
         }
 
