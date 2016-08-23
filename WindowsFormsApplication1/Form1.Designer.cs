@@ -54,11 +54,11 @@ namespace WindowsFormsApplication1
             this.label7 = new System.Windows.Forms.Label();
             this.DataPointsLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.MinForceLabel = new System.Windows.Forms.Label();
             this.MaxForceLabel = new System.Windows.Forms.Label();
             this.averageForceLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -66,10 +66,13 @@ namespace WindowsFormsApplication1
             this.tareButton = new System.Windows.Forms.Button();
             this.ConnectButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.availablePorts = new System.Windows.Forms.ListBox();
             this.timeInputControl = new System.Windows.Forms.TextBox();
             this.ForceReadingLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.calibrateButton = new System.Windows.Forms.Button();
+            this.calWeightBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -199,9 +202,9 @@ namespace WindowsFormsApplication1
             this.groupBox2.Controls.Add(this.tableLayoutPanel1);
             this.groupBox2.Controls.Add(this.listBox1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox2.Location = new System.Drawing.Point(3, 152);
+            this.groupBox2.Location = new System.Drawing.Point(3, 188);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(467, 195);
+            this.groupBox2.Size = new System.Drawing.Size(467, 159);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Test Results";
@@ -215,11 +218,11 @@ namespace WindowsFormsApplication1
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.DataPointsLabel, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.MinForceLabel, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.MaxForceLabel, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.averageForceLabel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(82, 18);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -228,13 +231,13 @@ namespace WindowsFormsApplication1
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(382, 174);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(382, 138);
             this.tableLayoutPanel1.TabIndex = 11;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 132);
+            this.label7.Location = new System.Drawing.Point(6, 105);
             this.label7.Margin = new System.Windows.Forms.Padding(3);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(15, 5, 0, 0);
@@ -246,7 +249,7 @@ namespace WindowsFormsApplication1
             // DataPointsLabel
             // 
             this.DataPointsLabel.AutoSize = true;
-            this.DataPointsLabel.Location = new System.Drawing.Point(195, 132);
+            this.DataPointsLabel.Location = new System.Drawing.Point(195, 105);
             this.DataPointsLabel.Margin = new System.Windows.Forms.Padding(3);
             this.DataPointsLabel.Name = "DataPointsLabel";
             this.DataPointsLabel.Padding = new System.Windows.Forms.Padding(15, 5, 0, 0);
@@ -258,7 +261,7 @@ namespace WindowsFormsApplication1
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 90);
+            this.label8.Location = new System.Drawing.Point(6, 72);
             this.label8.Margin = new System.Windows.Forms.Padding(3);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(15, 5, 0, 0);
@@ -267,22 +270,10 @@ namespace WindowsFormsApplication1
             this.label8.Text = "Min Force";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 6);
-            this.label5.Margin = new System.Windows.Forms.Padding(3);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(15, 5, 0, 0);
-            this.label5.Size = new System.Drawing.Size(126, 21);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Average Force";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 48);
+            this.label6.Location = new System.Drawing.Point(6, 39);
             this.label6.Margin = new System.Windows.Forms.Padding(3);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(15, 5, 0, 0);
@@ -294,7 +285,7 @@ namespace WindowsFormsApplication1
             // MinForceLabel
             // 
             this.MinForceLabel.AutoSize = true;
-            this.MinForceLabel.Location = new System.Drawing.Point(195, 90);
+            this.MinForceLabel.Location = new System.Drawing.Point(195, 72);
             this.MinForceLabel.Margin = new System.Windows.Forms.Padding(3);
             this.MinForceLabel.Name = "MinForceLabel";
             this.MinForceLabel.Padding = new System.Windows.Forms.Padding(15, 5, 0, 0);
@@ -306,7 +297,7 @@ namespace WindowsFormsApplication1
             // MaxForceLabel
             // 
             this.MaxForceLabel.AutoSize = true;
-            this.MaxForceLabel.Location = new System.Drawing.Point(195, 48);
+            this.MaxForceLabel.Location = new System.Drawing.Point(195, 39);
             this.MaxForceLabel.Margin = new System.Windows.Forms.Padding(3);
             this.MaxForceLabel.Name = "MaxForceLabel";
             this.MaxForceLabel.Padding = new System.Windows.Forms.Padding(15, 5, 0, 0);
@@ -327,6 +318,18 @@ namespace WindowsFormsApplication1
             this.averageForceLabel.Text = "0.0 ";
             this.averageForceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 6);
+            this.label5.Margin = new System.Windows.Forms.Padding(3);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(15, 5, 0, 0);
+            this.label5.Size = new System.Drawing.Size(126, 21);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Average Force";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // listBox1
             // 
             this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -336,33 +339,39 @@ namespace WindowsFormsApplication1
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(3, 18);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(79, 164);
+            this.listBox1.Size = new System.Drawing.Size(79, 148);
             this.listBox1.TabIndex = 10;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.35616F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.94521F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.startTestButton, 2, 2);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.startTestButton, 2, 3);
             this.tableLayoutPanel2.Controls.Add(this.tareButton, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.ConnectButton, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.availablePorts, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.timeInputControl, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.timeInputControl, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.ForceReadingLabel, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label13, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.calibrateButton, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.calWeightBox, 1, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 18);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(467, 134);
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(467, 170);
             this.tableLayoutPanel2.TabIndex = 14;
+            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // label2
             // 
@@ -370,10 +379,10 @@ namespace WindowsFormsApplication1
             this.label2.BackColor = System.Drawing.SystemColors.Control;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(10, 98);
+            this.label2.Location = new System.Drawing.Point(10, 136);
             this.label2.Margin = new System.Windows.Forms.Padding(10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 26);
+            this.label2.Size = new System.Drawing.Size(135, 24);
             this.label2.TabIndex = 13;
             this.label2.Text = "Test Interval (s)";
             // 
@@ -382,10 +391,10 @@ namespace WindowsFormsApplication1
             this.startTestButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.startTestButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startTestButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.startTestButton.Location = new System.Drawing.Point(319, 98);
+            this.startTestButton.Location = new System.Drawing.Point(320, 136);
             this.startTestButton.Margin = new System.Windows.Forms.Padding(10);
             this.startTestButton.Name = "startTestButton";
-            this.startTestButton.Size = new System.Drawing.Size(138, 26);
+            this.startTestButton.Size = new System.Drawing.Size(137, 24);
             this.startTestButton.TabIndex = 0;
             this.startTestButton.Text = "Start Test";
             this.startTestButton.UseVisualStyleBackColor = true;
@@ -393,12 +402,11 @@ namespace WindowsFormsApplication1
             // 
             // tareButton
             // 
-            this.tareButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tareButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tareButton.Location = new System.Drawing.Point(319, 54);
+            this.tareButton.Location = new System.Drawing.Point(320, 52);
             this.tareButton.Margin = new System.Windows.Forms.Padding(10);
             this.tareButton.Name = "tareButton";
-            this.tareButton.Size = new System.Drawing.Size(138, 24);
+            this.tareButton.Size = new System.Drawing.Size(137, 22);
             this.tareButton.TabIndex = 9;
             this.tareButton.Text = "TARE";
             this.tareButton.UseVisualStyleBackColor = true;
@@ -408,10 +416,10 @@ namespace WindowsFormsApplication1
             // 
             this.ConnectButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ConnectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConnectButton.Location = new System.Drawing.Point(319, 10);
+            this.ConnectButton.Location = new System.Drawing.Point(320, 10);
             this.ConnectButton.Margin = new System.Windows.Forms.Padding(10);
             this.ConnectButton.Name = "ConnectButton";
-            this.ConnectButton.Size = new System.Drawing.Size(138, 24);
+            this.ConnectButton.Size = new System.Drawing.Size(137, 22);
             this.ConnectButton.TabIndex = 6;
             this.ConnectButton.Text = "Connect";
             this.ConnectButton.UseVisualStyleBackColor = true;
@@ -426,22 +434,9 @@ namespace WindowsFormsApplication1
             this.label4.Location = new System.Drawing.Point(10, 10);
             this.label4.Margin = new System.Windows.Forms.Padding(10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(159, 24);
+            this.label4.Size = new System.Drawing.Size(135, 22);
             this.label4.TabIndex = 3;
             this.label4.Text = "Select Port";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 54);
-            this.label1.Margin = new System.Windows.Forms.Padding(10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Force Reading:";
             // 
             // availablePorts
             // 
@@ -451,24 +446,23 @@ namespace WindowsFormsApplication1
             this.availablePorts.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.availablePorts.FormattingEnabled = true;
             this.availablePorts.ItemHeight = 18;
-            this.availablePorts.Location = new System.Drawing.Point(189, 10);
+            this.availablePorts.Location = new System.Drawing.Point(165, 10);
             this.availablePorts.Margin = new System.Windows.Forms.Padding(10);
             this.availablePorts.Name = "availablePorts";
             this.availablePorts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.availablePorts.Size = new System.Drawing.Size(110, 24);
+            this.availablePorts.Size = new System.Drawing.Size(135, 22);
             this.availablePorts.TabIndex = 12;
             // 
             // timeInputControl
             // 
             this.timeInputControl.BackColor = System.Drawing.SystemColors.Control;
-            this.timeInputControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.timeInputControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeInputControl.Location = new System.Drawing.Point(189, 98);
+            this.timeInputControl.Location = new System.Drawing.Point(165, 136);
             this.timeInputControl.Margin = new System.Windows.Forms.Padding(10);
             this.timeInputControl.Multiline = true;
             this.timeInputControl.Name = "timeInputControl";
             this.timeInputControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.timeInputControl.Size = new System.Drawing.Size(110, 26);
+            this.timeInputControl.Size = new System.Drawing.Size(135, 24);
             this.timeInputControl.TabIndex = 7;
             this.timeInputControl.Text = "10";
             // 
@@ -476,15 +470,63 @@ namespace WindowsFormsApplication1
             // 
             this.ForceReadingLabel.BackColor = System.Drawing.SystemColors.Control;
             this.ForceReadingLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ForceReadingLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.ForceReadingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForceReadingLabel.Location = new System.Drawing.Point(189, 54);
+            this.ForceReadingLabel.Location = new System.Drawing.Point(165, 52);
             this.ForceReadingLabel.Margin = new System.Windows.Forms.Padding(10);
             this.ForceReadingLabel.Name = "ForceReadingLabel";
-            this.ForceReadingLabel.Size = new System.Drawing.Size(110, 24);
+            this.ForceReadingLabel.Size = new System.Drawing.Size(135, 22);
             this.ForceReadingLabel.TabIndex = 2;
             this.ForceReadingLabel.Text = "0.0 lbf.";
             this.ForceReadingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 52);
+            this.label1.Margin = new System.Windows.Forms.Padding(10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Force Reading:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.SystemColors.Control;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(10, 94);
+            this.label13.Margin = new System.Windows.Forms.Padding(10);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 20);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Cal Weight";
+            // 
+            // calibrateButton
+            // 
+            this.calibrateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calibrateButton.Location = new System.Drawing.Point(320, 94);
+            this.calibrateButton.Margin = new System.Windows.Forms.Padding(10);
+            this.calibrateButton.Name = "calibrateButton";
+            this.calibrateButton.Size = new System.Drawing.Size(137, 22);
+            this.calibrateButton.TabIndex = 9;
+            this.calibrateButton.Text = "Calibrate";
+            this.calibrateButton.UseVisualStyleBackColor = true;
+            this.calibrateButton.Click += new System.EventHandler(this.calibrateButton_Click);
+            // 
+            // calWeightBox
+            // 
+            this.calWeightBox.BackColor = System.Drawing.SystemColors.Control;
+            this.calWeightBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calWeightBox.Location = new System.Drawing.Point(165, 94);
+            this.calWeightBox.Margin = new System.Windows.Forms.Padding(10);
+            this.calWeightBox.Multiline = true;
+            this.calWeightBox.Name = "calWeightBox";
+            this.calWeightBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.calWeightBox.Size = new System.Drawing.Size(135, 22);
+            this.calWeightBox.TabIndex = 7;
+            this.calWeightBox.Text = "11.9";
             // 
             // panel1
             // 
@@ -771,6 +813,9 @@ namespace WindowsFormsApplication1
         private Label label9;
         private TextBox MeasuredPressureBox;
         private Label label11;
+        private Label label13;
+        internal Button calibrateButton;
+        private TextBox calWeightBox;
     }
 }
 

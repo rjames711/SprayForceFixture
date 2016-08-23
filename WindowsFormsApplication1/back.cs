@@ -20,11 +20,12 @@ namespace WindowsFormsApplication1
         public double tare = 0;
         string comPort;
         double taredForce = 0;
+        public double calibratedForce;
         double dataTiming = 5; //milliseconds between datasamplings
         public double dps = 10;       //number of front end datapoints per second
         double dataSmoothing; //number of datapoint to collect and average before reporting back force.
         Stopwatch timer = new Stopwatch();
- 
+        double calibrationFactor=1;
 
         public double getCurrentForce()
         {            
@@ -66,12 +67,13 @@ namespace WindowsFormsApplication1
             }
             currentForce = (sum / dataSmoothing); //need to maintain raw force reading for tare function to work.
             taredForce = currentForce - tare;
+            calibratedForce = taredForce*calibrationFactor; // If a calibration is performed
             if (recording)
             {
-                forceValues.Add(taredForce); 
+                forceValues.Add(calibratedForce); 
             }
           
-            return currentForce;
+            return calibratedForce;
         }
 
 
@@ -145,6 +147,11 @@ namespace WindowsFormsApplication1
         {
             return mySerialPort.IsOpen;
  
+        }
+
+        public void calibrate(double calWeight)
+        {
+            calibrationFactor = calWeight / taredForce;
         }
 
         public back()

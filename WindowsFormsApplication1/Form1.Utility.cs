@@ -61,7 +61,7 @@ namespace WindowsFormsApplication1
         void updateValues()
         {
             data.getDataPoint();
-            force = data.getTaredForce();
+            force = data.calibratedForce;
             count = data.forceValues.Count();
             UI_Force = formatForDisplay(force);
             graphPoint = (count / data.dps) - (1 / data.dps);  // subtraction here eliminates annoying offset at beginning of graph

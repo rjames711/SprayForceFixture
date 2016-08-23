@@ -215,6 +215,16 @@ namespace WindowsFormsApplication1
             cf.ShowDialog();
             exportLocationBox.Text = cf.SelectedPath;
         }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void calibrateButton_Click(object sender, EventArgs e)
+        {
+            data.calibrate(Convert.ToDouble(calWeightBox.Text));
+        }
     }
 
 
