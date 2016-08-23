@@ -108,6 +108,8 @@ namespace WindowsFormsApplication1
                 ForceGraph.ChartAreas[0].AxisY.Maximum = Math.Round(force) + 1;
             if (force < ForceGraph.ChartAreas[0].AxisY.Minimum)
                 ForceGraph.ChartAreas[0].AxisY.Minimum = Math.Round(force) - 1;
+            if (graphPoint >= ForceGraph.ChartAreas[0].AxisX.Maximum)
+                ForceGraph.ChartAreas[0].AxisX.Maximum = graphPoint + 10;
             ForceGraph.Series[testNumber].Points.ResumeUpdates();
 
         }

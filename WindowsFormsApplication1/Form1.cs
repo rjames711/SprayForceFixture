@@ -40,8 +40,7 @@ namespace WindowsFormsApplication1
         double graphPoint;
         string averageForce;
         string minForce;
-        string maxForce;
-        string exportPath;
+        string maxForce;        
         List<TestSession> tests = new List<TestSession>();
         //  System.Windows.Forms.Timer refreshTimer; 
 
@@ -67,6 +66,10 @@ namespace WindowsFormsApplication1
             {
                 //if the test interval is larger than the graph size x axis is increased.
                 ForceGraph.ChartAreas[0].AxisX.Maximum = testInterval;
+            }
+            if(testInterval==0)
+            {
+                testInterval = 1000;
             }
             if (recording)
             {
@@ -134,7 +137,6 @@ namespace WindowsFormsApplication1
 
         private void ClearGraphButton_Click(object sender, EventArgs e)
         {
-
             while (ForceGraph.Series.Count > 1)
             {
                 ForceGraph.Series.RemoveAt(ForceGraph.Series.Count - 1);
@@ -160,16 +162,16 @@ namespace WindowsFormsApplication1
 
         }
 
-        void UpdateDataBase()
-        {
-            Database1DataSet db = new Database1DataSet();
-            DataTable db1 = db.SprayForce;
+        //void UpdateDataBase()
+        //{
+        //    Database1DataSet db = new Database1DataSet();
+        //    DataTable db1 = db.SprayForce;
 
-            db1.Columns.Add("name", typeof(string));
-            db1.Columns.Add("address", typeof(string));
-            db1.AcceptChanges();
+        //    db1.Columns.Add("name", typeof(string));
+        //    db1.Columns.Add("address", typeof(string));
+        //    db1.AcceptChanges();
 
-        }
+        //}
 
         private void exportData_Click(object sender, EventArgs e)
         {
@@ -178,8 +180,7 @@ namespace WindowsFormsApplication1
             try
             {
                 foreach (TestSession test in tests)
-                {
-                    
+                {                    
                     test.writeTest(root);
                     test.writeLongTest(root);
                 }
