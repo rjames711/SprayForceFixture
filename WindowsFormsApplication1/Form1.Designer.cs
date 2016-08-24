@@ -75,14 +75,15 @@ namespace WindowsFormsApplication1
             this.calWeightBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.testNameComboBox = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.exportLocationBox = new System.Windows.Forms.TextBox();
             this.exportDataButton = new System.Windows.Forms.Button();
-            this.TestNotesBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.TestNameLabel = new System.Windows.Forms.Label();
             this.TestNameBox = new System.Windows.Forms.TextBox();
+            this.TestNotesBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.MeasureFlowBox = new System.Windows.Forms.TextBox();
             this.ItemBox = new System.Windows.Forms.TextBox();
@@ -541,19 +542,31 @@ namespace WindowsFormsApplication1
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.TestNameBox);
             this.groupBox3.Controls.Add(this.exportLocationBox);
             this.groupBox3.Controls.Add(this.exportDataButton);
-            this.groupBox3.Controls.Add(this.TestNotesBox);
             this.groupBox3.Controls.Add(this.tableLayoutPanel3);
             this.groupBox3.Controls.Add(this.ClearGraphButton);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(0, 350);
+            this.groupBox3.MaximumSize = new System.Drawing.Size(950, 150);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(906, 114);
+            this.groupBox3.Size = new System.Drawing.Size(906, 133);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Test Information";
+            // 
+            // testNameComboBox
+            // 
+            this.testNameComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.testNameComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.testNameComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.testNameComboBox.FormattingEnabled = true;
+            this.testNameComboBox.Location = new System.Drawing.Point(137, 3);
+            this.testNameComboBox.Name = "testNameComboBox";
+            this.testNameComboBox.Size = new System.Drawing.Size(121, 21);
+            this.testNameComboBox.TabIndex = 21;
             // 
             // button1
             // 
@@ -586,16 +599,6 @@ namespace WindowsFormsApplication1
             this.exportDataButton.UseVisualStyleBackColor = true;
             this.exportDataButton.Click += new System.EventHandler(this.exportData_Click);
             // 
-            // TestNotesBox
-            // 
-            this.TestNotesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestNotesBox.Location = new System.Drawing.Point(275, 83);
-            this.TestNotesBox.Multiline = true;
-            this.TestNotesBox.Name = "TestNotesBox";
-            this.TestNotesBox.Size = new System.Drawing.Size(265, 27);
-            this.TestNotesBox.TabIndex = 18;
-            this.TestNotesBox.Text = "Test Notes";
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 4;
@@ -603,9 +606,10 @@ namespace WindowsFormsApplication1
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.tableLayoutPanel3.Controls.Add(this.testNameComboBox, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.label10, 0, 2);
             this.tableLayoutPanel3.Controls.Add(this.TestNameLabel, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.TestNameBox, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.TestNotesBox, 2, 2);
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.MeasureFlowBox, 1, 2);
             this.tableLayoutPanel3.Controls.Add(this.ItemBox, 1, 1);
@@ -620,7 +624,8 @@ namespace WindowsFormsApplication1
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(537, 93);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(537, 112);
             this.tableLayoutPanel3.TabIndex = 16;
             // 
             // label10
@@ -630,10 +635,10 @@ namespace WindowsFormsApplication1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 65);
+            this.label10.Location = new System.Drawing.Point(3, 63);
             this.label10.Margin = new System.Windows.Forms.Padding(3);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(128, 25);
+            this.label10.Size = new System.Drawing.Size(128, 24);
             this.label10.TabIndex = 12;
             this.label10.Text = "Measured Flow";
             // 
@@ -647,18 +652,32 @@ namespace WindowsFormsApplication1
             this.TestNameLabel.Location = new System.Drawing.Point(3, 3);
             this.TestNameLabel.Margin = new System.Windows.Forms.Padding(3);
             this.TestNameLabel.Name = "TestNameLabel";
-            this.TestNameLabel.Size = new System.Drawing.Size(128, 25);
+            this.TestNameLabel.Size = new System.Drawing.Size(128, 24);
             this.TestNameLabel.TabIndex = 1;
             this.TestNameLabel.Text = "Test Name";
             // 
             // TestNameBox
             // 
             this.TestNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestNameBox.Location = new System.Drawing.Point(137, 3);
+            this.TestNameBox.Location = new System.Drawing.Point(756, 62);
             this.TestNameBox.Name = "TestNameBox";
             this.TestNameBox.Size = new System.Drawing.Size(100, 20);
             this.TestNameBox.TabIndex = 5;
             this.TestNameBox.Text = "Test1";
+            this.TestNameBox.Visible = false;
+            // 
+            // TestNotesBox
+            // 
+            this.tableLayoutPanel3.SetColumnSpan(this.TestNotesBox, 2);
+            this.TestNotesBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestNotesBox.Location = new System.Drawing.Point(271, 63);
+            this.TestNotesBox.Multiline = true;
+            this.TestNotesBox.Name = "TestNotesBox";
+            this.tableLayoutPanel3.SetRowSpan(this.TestNotesBox, 2);
+            this.TestNotesBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TestNotesBox.Size = new System.Drawing.Size(263, 46);
+            this.TestNotesBox.TabIndex = 18;
+            this.TestNotesBox.Text = "Test Notes";
             // 
             // label3
             // 
@@ -667,17 +686,17 @@ namespace WindowsFormsApplication1
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 34);
+            this.label3.Location = new System.Drawing.Point(3, 33);
             this.label3.Margin = new System.Windows.Forms.Padding(3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 25);
+            this.label3.Size = new System.Drawing.Size(128, 24);
             this.label3.TabIndex = 10;
             this.label3.Text = "Shower Head ";
             // 
             // MeasureFlowBox
             // 
             this.MeasureFlowBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MeasureFlowBox.Location = new System.Drawing.Point(137, 65);
+            this.MeasureFlowBox.Location = new System.Drawing.Point(137, 63);
             this.MeasureFlowBox.Name = "MeasureFlowBox";
             this.MeasureFlowBox.Size = new System.Drawing.Size(100, 20);
             this.MeasureFlowBox.TabIndex = 6;
@@ -685,7 +704,7 @@ namespace WindowsFormsApplication1
             // ItemBox
             // 
             this.ItemBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemBox.Location = new System.Drawing.Point(137, 34);
+            this.ItemBox.Location = new System.Drawing.Point(137, 33);
             this.ItemBox.Name = "ItemBox";
             this.ItemBox.Size = new System.Drawing.Size(100, 20);
             this.ItemBox.TabIndex = 11;
@@ -695,7 +714,7 @@ namespace WindowsFormsApplication1
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(271, 34);
+            this.label9.Location = new System.Drawing.Point(271, 33);
             this.label9.Margin = new System.Windows.Forms.Padding(3);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(108, 15);
@@ -705,7 +724,7 @@ namespace WindowsFormsApplication1
             // TesterBox
             // 
             this.TesterBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TesterBox.Location = new System.Drawing.Point(405, 34);
+            this.TesterBox.Location = new System.Drawing.Point(405, 33);
             this.TesterBox.Name = "TesterBox";
             this.TesterBox.Size = new System.Drawing.Size(100, 20);
             this.TesterBox.TabIndex = 13;
@@ -739,7 +758,7 @@ namespace WindowsFormsApplication1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(906, 464);
+            this.ClientSize = new System.Drawing.Size(906, 483);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -816,6 +835,7 @@ namespace WindowsFormsApplication1
         private Label label13;
         internal Button calibrateButton;
         private TextBox calWeightBox;
+        private ComboBox testNameComboBox;
     }
 }
 

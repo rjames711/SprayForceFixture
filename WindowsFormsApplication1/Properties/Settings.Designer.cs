@@ -22,5 +22,41 @@ namespace WindowsFormsApplication1.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"\"")]
+        public string defaultPath {
+            get {
+                return ((string)(this["defaultPath"]));
+            }
+            set {
+                this["defaultPath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public double calibrationFactor {
+            get {
+                return ((double)(this["calibrationFactor"]));
+            }
+            set {
+                this["calibrationFactor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public double tare {
+            get {
+                return ((double)(this["tare"]));
+            }
+            set {
+                this["tare"] = value;
+            }
+        }
     }
 }

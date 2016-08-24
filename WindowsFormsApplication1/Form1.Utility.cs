@@ -120,7 +120,7 @@ namespace WindowsFormsApplication1
         /// </summary>
         void resetTest()
         {
-            tests.Add(new TestSession(data.forceValues, TestNameBox.Text, ItemBox.Text, data.unit, "", 
+            tests.Add(new TestSession(data.forceValues, testNameComboBox.Text, ItemBox.Text, data.unit, "", 
                 MeasureFlowBox.Text, MeasuredPressureBox.Text, TesterBox.Text, TestNotesBox.Text));
             recording = false;
             data.recording = false;

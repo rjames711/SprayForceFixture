@@ -48,6 +48,9 @@ namespace WindowsFormsApplication1
             this.comPort = comPort;
             connectPort(comPort);
             dataSmoothing = 1000 / (dps * dataTiming);
+            tare = Properties.Settings.Default.tare;
+            calibrationFactor = Properties.Settings.Default.calibrationFactor;
+
         }
 
         /// <summary>
@@ -152,6 +155,18 @@ namespace WindowsFormsApplication1
         public void calibrate(double calWeight)
         {
             calibrationFactor = calWeight / taredForce;
+            Properties.Settings.Default.calibrationFactor = calibrationFactor;
+            Properties.Settings.Default.Save();
+        }
+
+        public void tareGauge()
+        {
+            if (hasConnection())
+            {
+                tare = currentForce;
+                Properties.Settings.Default.tare = tare;
+                Properties.Settings.Default.Save();
+            }
         }
 
         public back()

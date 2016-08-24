@@ -12,6 +12,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Timers;
+using System.Collections.Generic;
+
+
 
 
 ///in back class the # of sub data points is hard coded at 1 getforce  every 5 milliseconds. 
@@ -40,12 +43,13 @@ namespace WindowsFormsApplication1
         double graphPoint;
         string averageForce;
         string minForce;
+     
         string maxForce;        
         List<TestSession> tests = new List<TestSession>();
         //  System.Windows.Forms.Timer refreshTimer; 
 
         public Form1()
-        {
+        {         
             InitializeComponent();
             this.availablePorts.Items.AddRange(getPorts());
             //creates a default location for spray force results 
@@ -53,7 +57,14 @@ namespace WindowsFormsApplication1
             string defaultPath =
                 Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString()
                 + "\\Spray Force Data").FullName;
-            exportLocationBox.Text = defaultPath;            
+            //Right now want it to default to same location every run. May
+            //allow user to pick default location in future 
+            //exportLocationBox.Text = Properties.Settings.Default.defaultPath;
+            exportLocationBox.Text = defaultPath;
+            setComboBoxItems(defaultPath);
+
+
+
         }
 
         private void startTestButton_Click(object sender, EventArgs e)
@@ -106,8 +117,7 @@ namespace WindowsFormsApplication1
         }
         private void TareButton_Click(object sender, EventArgs e)
         {
-            if (hasConnection())
-                data.tare = data.getCurrentForce();
+            data.tareGauge();
         }
 
         void recordSwitch(object sender, EventArgs e)
@@ -215,6 +225,8 @@ namespace WindowsFormsApplication1
             FolderBrowserDialog cf = new FolderBrowserDialog();
             cf.ShowDialog();
             exportLocationBox.Text = cf.SelectedPath;
+            Properties.Settings.Default.defaultPath = exportLocationBox.Text;
+            Properties.Settings.Default.Save();
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -225,6 +237,21 @@ namespace WindowsFormsApplication1
         private void calibrateButton_Click(object sender, EventArgs e)
         {
             data.calibrate(Convert.ToDouble(calWeightBox.Text));
+        }
+
+        void setComboBoxItems(string path)
+        {
+            System.IO.DirectoryInfo r = new DirectoryInfo(path);
+            FileInfo[] c = r.GetFiles();
+            // String [] f  c => c.ToList().ForEach
+            //was hoping to figure out how to do this with a lambda expression
+            //conveting filenames to string so I can remove the csv extension
+            foreach (FileInfo file in c)
+            {
+                StringBuilder name = new StringBuilder(file.ToString());
+                name.Replace(".csv", "");
+                testNameComboBox.Items.Add(name);
+            }            
         }
     }
 

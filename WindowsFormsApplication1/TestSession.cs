@@ -72,6 +72,7 @@ namespace WindowsFormsApplication1
 
         public void writeLongTest(string root)
         {
+            root = Directory.CreateDirectory(root + "\\Full Results").FullName;
             using (System.IO.StreamWriter file = 
                 new System.IO.StreamWriter(root +"\\"+ testName + "(full).csv", true))
             {
