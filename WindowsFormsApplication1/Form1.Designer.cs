@@ -75,14 +75,14 @@ namespace WindowsFormsApplication1
             this.calWeightBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.testNameComboBox = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.TestNameBox = new System.Windows.Forms.TextBox();
             this.exportLocationBox = new System.Windows.Forms.TextBox();
             this.exportDataButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.testNameComboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.TestNameLabel = new System.Windows.Forms.Label();
-            this.TestNameBox = new System.Windows.Forms.TextBox();
             this.TestNotesBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.MeasureFlowBox = new System.Windows.Forms.TextBox();
@@ -92,6 +92,7 @@ namespace WindowsFormsApplication1
             this.MeasuredPressureBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.reportButton = new System.Windows.Forms.Button();
             datapoints = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.ForceGraph)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -541,6 +542,7 @@ namespace WindowsFormsApplication1
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.reportButton);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.TestNameBox);
             this.groupBox3.Controls.Add(this.exportLocationBox);
@@ -557,17 +559,6 @@ namespace WindowsFormsApplication1
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Test Information";
             // 
-            // testNameComboBox
-            // 
-            this.testNameComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.testNameComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.testNameComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.testNameComboBox.FormattingEnabled = true;
-            this.testNameComboBox.Location = new System.Drawing.Point(137, 3);
-            this.testNameComboBox.Name = "testNameComboBox";
-            this.testNameComboBox.Size = new System.Drawing.Size(121, 21);
-            this.testNameComboBox.TabIndex = 21;
-            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -578,6 +569,16 @@ namespace WindowsFormsApplication1
             this.button1.Text = "Browse";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // TestNameBox
+            // 
+            this.TestNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestNameBox.Location = new System.Drawing.Point(756, 62);
+            this.TestNameBox.Name = "TestNameBox";
+            this.TestNameBox.Size = new System.Drawing.Size(100, 20);
+            this.TestNameBox.TabIndex = 5;
+            this.TestNameBox.Text = "Test1";
+            this.TestNameBox.Visible = false;
             // 
             // exportLocationBox
             // 
@@ -628,6 +629,17 @@ namespace WindowsFormsApplication1
             this.tableLayoutPanel3.Size = new System.Drawing.Size(537, 112);
             this.tableLayoutPanel3.TabIndex = 16;
             // 
+            // testNameComboBox
+            // 
+            this.testNameComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.testNameComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.testNameComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.testNameComboBox.FormattingEnabled = true;
+            this.testNameComboBox.Location = new System.Drawing.Point(137, 3);
+            this.testNameComboBox.Name = "testNameComboBox";
+            this.testNameComboBox.Size = new System.Drawing.Size(121, 21);
+            this.testNameComboBox.TabIndex = 21;
+            // 
             // label10
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -655,16 +667,6 @@ namespace WindowsFormsApplication1
             this.TestNameLabel.Size = new System.Drawing.Size(128, 24);
             this.TestNameLabel.TabIndex = 1;
             this.TestNameLabel.Text = "Test Name";
-            // 
-            // TestNameBox
-            // 
-            this.TestNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestNameBox.Location = new System.Drawing.Point(756, 62);
-            this.TestNameBox.Name = "TestNameBox";
-            this.TestNameBox.Size = new System.Drawing.Size(100, 20);
-            this.TestNameBox.TabIndex = 5;
-            this.TestNameBox.Text = "Test1";
-            this.TestNameBox.Visible = false;
             // 
             // TestNotesBox
             // 
@@ -753,6 +755,17 @@ namespace WindowsFormsApplication1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // reportButton
+            // 
+            this.reportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportButton.Location = new System.Drawing.Point(558, 18);
+            this.reportButton.Name = "reportButton";
+            this.reportButton.Size = new System.Drawing.Size(91, 23);
+            this.reportButton.TabIndex = 21;
+            this.reportButton.Text = "Create Report";
+            this.reportButton.UseVisualStyleBackColor = true;
+            this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -836,6 +849,7 @@ namespace WindowsFormsApplication1
         internal Button calibrateButton;
         private TextBox calWeightBox;
         private ComboBox testNameComboBox;
+        private Button reportButton;
     }
 }
 

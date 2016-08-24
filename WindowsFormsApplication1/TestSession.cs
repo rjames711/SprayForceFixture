@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 using System.IO;
+using System.Reflection;
+using Microsoft.Office.Interop.Excel;
+
 namespace WindowsFormsApplication1
 {
     /// <summary>
@@ -53,6 +56,19 @@ namespace WindowsFormsApplication1
 
 
         }
+        public void writeExcelReport(string root)
+        {
+            Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+            xlApp.Visible = true;
+            Workbook wb =  xlApp.Workbooks.Add(XlWBATemplate.xlWBATWorksheet);
+            Worksheet ws = (Worksheet)wb.Worksheets.Add();               
+          //  Range aRange = ws.get_Range(2,1);
+          //  aRange.Value = 4;
+          //  wb.SaveAs(root + testName + ".xlsx");
+            wb.Close();
+
+
+        }
         /// <summary>
         /// Writes test summary without full list of datapoints. 
         /// Creates new file if name does't exist. Appends to file if does exist
@@ -66,8 +82,10 @@ namespace WindowsFormsApplication1
             }
         }
         /// <summary>
-        /// Writes test results including full list of datapoints for graphing etc. 
-        /// Creates new file if name does't exist. Appends to file if does exist
+        /// Writes test results to subfolder of main export directory (created if 
+        /// not existing) including full list of datapoints for graphing etc. 
+        /// Creates new file if name does't exist. Appends to file if does exist.
+        /// 
         /// </summary>
 
         public void writeLongTest(string root)

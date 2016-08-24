@@ -253,6 +253,12 @@ namespace WindowsFormsApplication1
                 testNameComboBox.Items.Add(name);
             }            
         }
+
+        private void reportButton_Click(object sender, EventArgs e)
+        {
+            string root = getExportDataLocation();
+            tests[0].writeExcelReport(root);
+        }
     }
 
 
