@@ -75,7 +75,8 @@ namespace WindowsFormsApplication1
             this.calWeightBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.reportButton = new System.Windows.Forms.Button();
+            this.browseButton = new System.Windows.Forms.Button();
             this.TestNameBox = new System.Windows.Forms.TextBox();
             this.exportLocationBox = new System.Windows.Forms.TextBox();
             this.exportDataButton = new System.Windows.Forms.Button();
@@ -92,7 +93,6 @@ namespace WindowsFormsApplication1
             this.MeasuredPressureBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.reportButton = new System.Windows.Forms.Button();
             datapoints = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.ForceGraph)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -373,7 +373,7 @@ namespace WindowsFormsApplication1
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(467, 170);
             this.tableLayoutPanel2.TabIndex = 14;
-            this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
+            
             // 
             // label2
             // 
@@ -543,7 +543,7 @@ namespace WindowsFormsApplication1
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.reportButton);
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.browseButton);
             this.groupBox3.Controls.Add(this.TestNameBox);
             this.groupBox3.Controls.Add(this.exportLocationBox);
             this.groupBox3.Controls.Add(this.exportDataButton);
@@ -559,16 +559,27 @@ namespace WindowsFormsApplication1
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Test Information";
             // 
-            // button1
+            // reportButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(639, 60);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Browse";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.reportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reportButton.Location = new System.Drawing.Point(558, 18);
+            this.reportButton.Name = "reportButton";
+            this.reportButton.Size = new System.Drawing.Size(91, 23);
+            this.reportButton.TabIndex = 21;
+            this.reportButton.Text = "Create Report";
+            this.reportButton.UseVisualStyleBackColor = true;
+            this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
+            // 
+            // browseButton
+            // 
+            this.browseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.browseButton.Location = new System.Drawing.Point(639, 60);
+            this.browseButton.Name = "browseButton";
+            this.browseButton.Size = new System.Drawing.Size(75, 23);
+            this.browseButton.TabIndex = 20;
+            this.browseButton.Text = "Browse";
+            this.browseButton.UseVisualStyleBackColor = true;
+            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
             // 
             // TestNameBox
             // 
@@ -639,6 +650,7 @@ namespace WindowsFormsApplication1
             this.testNameComboBox.Name = "testNameComboBox";
             this.testNameComboBox.Size = new System.Drawing.Size(121, 21);
             this.testNameComboBox.TabIndex = 21;
+            this.testNameComboBox.Text = "TestName";
             // 
             // label10
             // 
@@ -679,7 +691,7 @@ namespace WindowsFormsApplication1
             this.TestNotesBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TestNotesBox.Size = new System.Drawing.Size(263, 46);
             this.TestNotesBox.TabIndex = 18;
-            this.TestNotesBox.Text = "Test Notes";
+            this.TestNotesBox.Text = "Test Notes2";
             // 
             // label3
             // 
@@ -702,6 +714,7 @@ namespace WindowsFormsApplication1
             this.MeasureFlowBox.Name = "MeasureFlowBox";
             this.MeasureFlowBox.Size = new System.Drawing.Size(100, 20);
             this.MeasureFlowBox.TabIndex = 6;
+            this.MeasureFlowBox.Text = "2.0";
             // 
             // ItemBox
             // 
@@ -739,6 +752,7 @@ namespace WindowsFormsApplication1
             this.MeasuredPressureBox.Name = "MeasuredPressureBox";
             this.MeasuredPressureBox.Size = new System.Drawing.Size(100, 20);
             this.MeasuredPressureBox.TabIndex = 13;
+            this.MeasuredPressureBox.Text = "3.0";
             // 
             // label11
             // 
@@ -754,17 +768,6 @@ namespace WindowsFormsApplication1
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // reportButton
-            // 
-            this.reportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportButton.Location = new System.Drawing.Point(558, 18);
-            this.reportButton.Name = "reportButton";
-            this.reportButton.Size = new System.Drawing.Size(91, 23);
-            this.reportButton.TabIndex = 21;
-            this.reportButton.Text = "Create Report";
-            this.reportButton.UseVisualStyleBackColor = true;
-            this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
             // 
             // Form1
             // 
@@ -841,7 +844,7 @@ namespace WindowsFormsApplication1
         private TextBox TesterBox;
         private Timer timer1;
         private TextBox exportLocationBox;
-        private Button button1;
+        private Button browseButton;
         private Label label9;
         private TextBox MeasuredPressureBox;
         private Label label11;

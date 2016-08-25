@@ -187,12 +187,14 @@ namespace WindowsFormsApplication1
         {
             string root = getExportDataLocation();
             Console.WriteLine(root);
+            tests[0].writeExcelReport(root);
             try
             {
                 foreach (TestSession test in tests)
                 {                    
                     test.writeTest(root);
                     test.writeLongTest(root);
+                    
                 }
                 tests.Clear();
             }
@@ -200,6 +202,7 @@ namespace WindowsFormsApplication1
             {
                 MessageBox.Show("Data Export Unsuccessful. Is file open?");
             }
+            
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -218,20 +221,6 @@ namespace WindowsFormsApplication1
             if (recording)
                 updateGraph();
      //       Console.WriteLine(DateTime.Now.ToString());
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            FolderBrowserDialog cf = new FolderBrowserDialog();
-            cf.ShowDialog();
-            exportLocationBox.Text = cf.SelectedPath;
-            Properties.Settings.Default.defaultPath = exportLocationBox.Text;
-            Properties.Settings.Default.Save();
-        }
-
-        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void calibrateButton_Click(object sender, EventArgs e)
@@ -258,6 +247,15 @@ namespace WindowsFormsApplication1
         {
             string root = getExportDataLocation();
             tests[0].writeExcelReport(root);
+        }
+
+        private void browseButton_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog cf = new FolderBrowserDialog();
+            cf.ShowDialog();
+            exportLocationBox.Text = cf.SelectedPath;
+            Properties.Settings.Default.defaultPath = exportLocationBox.Text;
+            Properties.Settings.Default.Save();
         }
     }
 
