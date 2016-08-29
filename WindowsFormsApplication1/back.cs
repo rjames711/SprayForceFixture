@@ -11,6 +11,7 @@ namespace WindowsFormsApplication1
 {
     class back
     {
+        
         SerialPort mySerialPort;
         public string unit;
         bool startButton = true;
