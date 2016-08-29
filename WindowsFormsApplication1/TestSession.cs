@@ -117,6 +117,60 @@ namespace WindowsFormsApplication1
             file.WriteLine("Min Force:,," + minForce);
         }
 
+        public void writeSimpleExcelEntry(string root)
+        {
+            root = Directory.CreateDirectory(root + "\\Excel Reports").FullName;
+            var excelApp = new Excel.Application();
+
+            object[][] sheet2Lines = new object[2][];
+            sheet2Lines[0] = new object[] { "Average Force", "Flow", "Pressure", "Date Tested", "Time", "Tested By","Values" };
+            sheet2Lines[1] = new object[] { averageForce, measuredFlow, measuredPressure, dateAndTime[0], dateAndTime[1], tester,values };
+            Excel.Workbook workbook;
+       
+            try
+            {
+                workbook = excelApp.Workbooks.Open(root + "\\" + testName + ".xlsx");
+            }
+            catch
+            {
+                workbook = excelApp.Workbooks.Add();
+                workbook.SaveAs(root + "\\" + testName + ".xlsx");
+            }
+            Excel._Worksheet workSheet2 = (Excel.Worksheet)excelApp.ActiveSheet;
+            workSheet2.Columns[4].NumberFormat = "@"; //format date column as text so it doesn't come in hashed
+            int startRow = 1;
+
+            var cell = workSheet2.Cells[startRow + 1, 1];
+            while (cell.Value2 != null)
+            {
+                startRow++;
+                cell = workSheet2.Cells[startRow + 1, 1];
+            }
+
+            for (int i = 0; i < sheet2Lines[0].Length; i++)
+            {
+                workSheet2.Cells[1, i + 1] = sheet2Lines[0][i];
+                if (sheet2Lines[1][i]  is List<double>)
+                {
+                  List<double>  a =  sheet2Lines[1][i] as List<double>;
+                    for (int j = 0; j < a.Count;j++)
+                        workSheet2.Cells[startRow + 1, i + 1 + j] = a[j];
+
+                }
+                else
+                {
+                    
+                    workSheet2.Cells[startRow + 1, i + 1] = sheet2Lines[1][i];
+                }
+
+            }
+
+      
+
+            workbook.Save();
+            excelApp.Quit();
+        }
+
 
         public void writeExcelReport(string root)
         {
@@ -134,8 +188,8 @@ namespace WindowsFormsApplication1
             sheet1Lines[7] = new object[] { "Min Force", "", minForce };
 
             object[][] sheet2Lines = new object[2][];
-            sheet2Lines[0] = new object[] { "Average Force", "Flow", "Pressure", "Date Tested", "Time" };
-            sheet2Lines[1] = new object[] { averageForce, measuredFlow, measuredPressure, dateAndTime[0], dateAndTime[1] };
+            sheet2Lines[0] = new object[] { "Average Force", "Flow", "Pressure", "Date Tested", "Time", "Tested By"};
+            sheet2Lines[1] = new object[] { averageForce, measuredFlow, measuredPressure, dateAndTime[0], dateAndTime[1],tester};
 
             #region test details sheet
             Excel.Workbook workbook;
@@ -181,8 +235,7 @@ namespace WindowsFormsApplication1
             Excel._Worksheet workSheet2;
             try
             {
-                workSheet2 = excelApp.Sheets[1];
-             
+                workSheet2 = excelApp.Sheets[1];             
             }
             catch
             {

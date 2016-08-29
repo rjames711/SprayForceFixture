@@ -187,7 +187,7 @@ namespace WindowsFormsApplication1
         {
             string root = getExportDataLocation();
             Console.WriteLine(root);
-            tests[0].writeExcelReport(root);
+            tests[0].writeSimpleExcelEntry(root);
             try
             {
                 foreach (TestSession test in tests)
