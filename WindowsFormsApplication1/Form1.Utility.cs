@@ -61,9 +61,10 @@ namespace WindowsFormsApplication1
         void updateValues()
         {
             data.getDataPoint();
-            force = data.calibratedForce;
-            count = data.forceValues.Count();
-            UI_Force = formatForDisplay(force);
+ //           force = data.calibratedForce;
+ //           count = data.forceValues.Count();
+ //           UI_Force = formatForDisplay(force);
+
             graphPoint = (count / data.dps) - (1 / data.dps);  // subtraction here eliminates annoying offset at beginning of graph
             if (recording && count > 0 && count <= testInterval * data.dps)
             {
@@ -103,15 +104,19 @@ namespace WindowsFormsApplication1
         ///UI becomes unresponsive.
         void updateGraph()
         {
-            ForceGraph.Series[testNumber].Points.AddXY(graphPoint, force);
-            if (force > ForceGraph.ChartAreas[0].AxisY.Maximum)
-                ForceGraph.ChartAreas[0].AxisY.Maximum = Math.Round(force) + 1;
-            if (force < ForceGraph.ChartAreas[0].AxisY.Minimum)
-                ForceGraph.ChartAreas[0].AxisY.Minimum = Math.Round(force) - 1;
-            if (graphPoint >= ForceGraph.ChartAreas[0].AxisX.Maximum)
-                ForceGraph.ChartAreas[0].AxisX.Maximum = graphPoint + 10;
-            ForceGraph.Series[testNumber].Points.ResumeUpdates();
+            for(int i =0; i<ForceGraph.Series.Count;i++)
+            {
+                double value = data.currentReadings[i];
 
+                ForceGraph.Series[i].Points.AddXY(graphPoint, value);
+                if (value > ForceGraph.ChartAreas[0].AxisY.Maximum)
+                    ForceGraph.ChartAreas[0].AxisY.Maximum = Math.Round(value) + 1;
+                if (value < ForceGraph.ChartAreas[0].AxisY.Minimum)
+                    ForceGraph.ChartAreas[0].AxisY.Minimum = Math.Round(value) - 1;
+                if (graphPoint >= ForceGraph.ChartAreas[0].AxisX.Maximum)
+                    ForceGraph.ChartAreas[0].AxisX.Maximum = graphPoint + 10;
+                ForceGraph.Series[testNumber].Points.ResumeUpdates();
+            }
         }
 
         /// <summary>
@@ -151,8 +156,13 @@ namespace WindowsFormsApplication1
         void startNewTest()
         {
             //  ForceGraph.Series[testNumber].Points.ToList().ForEach(i => Console.WriteLine(i.ToString())); 
-            testNumber++;
-            ForceGraph.Series.Add("Test " + testNumber.ToString());
+
+            foreach (double input in data.currentReadings)
+            {
+                testNumber++;
+                ForceGraph.Series.Add("Temp " + testNumber.ToString());
+            }
+
             ForceGraph.Series[testNumber].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             recording = true;
             data.recording = true;

@@ -11,7 +11,7 @@ namespace WindowsFormsApplication1
 {
     class back
     {
-        int A;
+       
         SerialPort mySerialPort;
         public string unit;
         bool startButton = true;
@@ -27,7 +27,8 @@ namespace WindowsFormsApplication1
         double dataSmoothing; //number of datapoint to collect and average before reporting back force.
         Stopwatch timer = new Stopwatch();
         double calibrationFactor=1;
-
+        public List<double> readings = new List<double>();
+        public List<double> currentReadings = new List<double>();
         public double getCurrentForce()
         {            
             return currentForce;
@@ -60,16 +61,26 @@ namespace WindowsFormsApplication1
         /// </summary>
         /// <returns>The average force for the given number of force samples. .</returns>
         public double getDataPoint()
-        {
-            double sum = 0;
+        {            
+            List<double> sum = new List<double>();
+
             for (int i = 0; i < dataSmoothing; i++)
             {
                 timer.Start();
-                sum += getForce();
+                if (i == 0)
+                    sum = getForce();
+                else
+                {
+                    for (int j = 0; j < sum.Count; j++)
+                    sum[j] += getForce()[j];      
+                }
                 while (timer.Elapsed.TotalMilliseconds < 5) ; //Timing occurs here.
-                timer.Reset();             
+                timer.Reset();
             }
-            currentForce = (sum / dataSmoothing); //need to maintain raw force reading for tare function to work.
+            currentReadings.Clear();
+            foreach (double sample in sum)
+                currentReadings.Add(sample / dataSmoothing);
+
             taredForce = currentForce - tare;
             calibratedForce = taredForce*calibrationFactor; // If a calibration is performed
             if (recording)
@@ -103,15 +114,24 @@ namespace WindowsFormsApplication1
 
         }
 
-        public double getForce()
+        public List<double> getForce()
         {
             string rawRead = "0";
             while (rawRead == "0")
                 rawRead = getReading();
 
             string[] reading = rawRead.Split(' ');
-            unit = reading[1].Replace('\r', ' '); ;
-            return double.Parse(reading[0]) * -1; //returns the double representation of the reading(inverting negative reading from gauge))
+            unit = reading[1].Replace('\r', ' ');
+            double j=0;
+            foreach (string f in reading)
+            {
+                Console.Write(f);
+                Double.TryParse(f, out j);
+                readings.Add(j);
+            }
+            Console.WriteLine();
+            //return double.Parse(reading[0]) * -1; //returns the double representation of the reading(inverting negative reading from gauge))
+            return readings;
         }
 
 
