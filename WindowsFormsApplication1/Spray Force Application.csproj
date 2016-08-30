@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="back.cs" />
+    <Compile Include="back.Force.cs" />
     <Compile Include="Form1.Utility.cs">
       <SubType>Form</SubType>
       <DependentUpon>Form1.cs</DependentUpon>

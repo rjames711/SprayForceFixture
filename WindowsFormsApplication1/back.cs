@@ -9,34 +9,20 @@ using System.Threading.Tasks;
 using System.Timers;
 namespace WindowsFormsApplication1
 {
-    class back
+  partial  class back
     {
        
         SerialPort mySerialPort;
         public string unit;
         bool startButton = true;
-        public bool recording = false;
-        double currentForce;
-        public List<double> forceValues = new List<double>();
-        public double tare = 0;
-        string comPort;
-        double taredForce = 0;
-        public double calibratedForce;
+        public bool recording = false;        
+        string comPort;      
         double dataTiming = 5; //milliseconds between datasamplings
-        public double dps = 10;       //number of front end datapoints per second
-        double dataSmoothing; //number of datapoint to collect and average before reporting back force.
-        Stopwatch timer = new Stopwatch();
-        double calibrationFactor=1;
+        Stopwatch timer = new Stopwatch();      
         public List<double> readings = new List<double>();
         public List<double> currentReadings = new List<double>();
-        public double getCurrentForce()
-        {            
-            return currentForce;
-        }
-        public double getTaredForce()
-        {
-            return taredForce;
-        }
+
+
 
         public void setStart(bool s)
         {
@@ -60,36 +46,6 @@ namespace WindowsFormsApplication1
         /// The averaged result returned is what the front end sees as a datapoint.
         /// </summary>
         /// <returns>The average force for the given number of force samples. .</returns>
-        public double getDataPoint()
-        {            
-            List<double> sum = new List<double>();
-
-            for (int i = 0; i < dataSmoothing; i++)
-            {
-                timer.Start();
-                if (i == 0)
-                    sum = getForce();
-                else
-                {
-                    for (int j = 0; j < sum.Count; j++)
-                    sum[j] += getForce()[j];      
-                }
-                while (timer.Elapsed.TotalMilliseconds < 5) ; //Timing occurs here.
-                timer.Reset();
-            }
-            currentReadings.Clear();
-            foreach (double sample in sum)
-                currentReadings.Add(sample / dataSmoothing);
-
-            taredForce = currentForce - tare;
-            calibratedForce = taredForce*calibrationFactor; // If a calibration is performed
-            if (recording)
-            {
-                forceValues.Add(calibratedForce); 
-            }
-          
-            return calibratedForce;
-        }
 
 
 
@@ -114,26 +70,6 @@ namespace WindowsFormsApplication1
 
         }
 
-        public List<double> getForce()
-        {
-            string rawRead = "0";
-            while (rawRead == "0")
-                rawRead = getReading();
-
-            string[] reading = rawRead.Split(' ');
-            unit = reading[1].Replace('\r', ' ');
-            double j=0;
-            foreach (string f in reading)
-            {
-                Console.Write(f);
-                Double.TryParse(f, out j);
-                readings.Add(j);
-            }
-            Console.WriteLine();
-            //return double.Parse(reading[0]) * -1; //returns the double representation of the reading(inverting negative reading from gauge))
-            return readings;
-        }
-
 
         string getReading()
         {
@@ -156,45 +92,11 @@ namespace WindowsFormsApplication1
             }
 
         }
-        double getForceAverage()
-        {
-            double sum = 0;
-            foreach (double force in forceValues)
-            {
-                sum += force;
-            }
-            return sum;
-        }
-
 
         public bool hasConnection()
         {
             return mySerialPort.IsOpen;
- 
         }
-
-        public void calibrate(double calWeight)
-        {
-            calibrationFactor = calWeight / taredForce;
-            Properties.Settings.Default.calibrationFactor = calibrationFactor;
-            Properties.Settings.Default.Save();
-        }
-
-        public void tareGauge()
-        {
-            if (hasConnection())
-            {
-                tare = currentForce;
-                Properties.Settings.Default.tare = tare;
-                Properties.Settings.Default.Save();
-            }
-        }
-
-        public back()
-        {
-
-        }
-
 
     }
         
