@@ -75,7 +75,7 @@ namespace WindowsFormsApplication1
             this.calWeightBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.reportButton = new System.Windows.Forms.Button();
+            this.deCalibrateButton = new System.Windows.Forms.Button();
             this.browseButton = new System.Windows.Forms.Button();
             this.TestNameBox = new System.Windows.Forms.TextBox();
             this.exportLocationBox = new System.Windows.Forms.TextBox();
@@ -373,7 +373,6 @@ namespace WindowsFormsApplication1
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(467, 170);
             this.tableLayoutPanel2.TabIndex = 14;
-            
             // 
             // label2
             // 
@@ -466,7 +465,7 @@ namespace WindowsFormsApplication1
             this.timeInputControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.timeInputControl.Size = new System.Drawing.Size(135, 24);
             this.timeInputControl.TabIndex = 7;
-            this.timeInputControl.Text = "10";
+            this.timeInputControl.Text = "2";
             // 
             // ForceReadingLabel
             // 
@@ -542,7 +541,7 @@ namespace WindowsFormsApplication1
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.reportButton);
+            this.groupBox3.Controls.Add(this.deCalibrateButton);
             this.groupBox3.Controls.Add(this.browseButton);
             this.groupBox3.Controls.Add(this.TestNameBox);
             this.groupBox3.Controls.Add(this.exportLocationBox);
@@ -559,16 +558,16 @@ namespace WindowsFormsApplication1
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Test Information";
             // 
-            // reportButton
+            // deCalibrateButton
             // 
-            this.reportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reportButton.Location = new System.Drawing.Point(558, 18);
-            this.reportButton.Name = "reportButton";
-            this.reportButton.Size = new System.Drawing.Size(91, 23);
-            this.reportButton.TabIndex = 21;
-            this.reportButton.Text = "Create Report";
-            this.reportButton.UseVisualStyleBackColor = true;
-            this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
+            this.deCalibrateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deCalibrateButton.Location = new System.Drawing.Point(558, 18);
+            this.deCalibrateButton.Name = "deCalibrateButton";
+            this.deCalibrateButton.Size = new System.Drawing.Size(91, 23);
+            this.deCalibrateButton.TabIndex = 21;
+            this.deCalibrateButton.Text = "De-Calibrate";
+            this.deCalibrateButton.UseVisualStyleBackColor = true;
+            this.deCalibrateButton.Click += new System.EventHandler(this.deCalibrate_Click);
             // 
             // browseButton
             // 
@@ -852,7 +851,7 @@ namespace WindowsFormsApplication1
         internal Button calibrateButton;
         private TextBox calWeightBox;
         private ComboBox testNameComboBox;
-        private Button reportButton;
+        private Button deCalibrateButton;
     }
 }
 

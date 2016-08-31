@@ -34,9 +34,11 @@ namespace WindowsFormsApplication1
 
                 if (recording && count == testInterval * data.dps)
                 {
-                    Console.WriteLine("resetting Test");
-                    resetTest();
-                    Console.WriteLine("resetting Test");
+                   backgroundWorker1.ReportProgress(2, data);
+//                    Console.WriteLine("resetting Test");
+//                    resetTest();
+//                    Console.WriteLine("resetting Test");
+//                    backgroundWorker1.ReportProgress(2, data);
                 }
             }
             Console.WriteLine("exiting thread");
@@ -52,8 +54,8 @@ namespace WindowsFormsApplication1
             this.data = e.UserState as back;
             updateUI();
 
-            if(e.ProgressPercentage==2)
-                startTestButton.Text = "Start Test";
+            if (e.ProgressPercentage == 2)
+                resetTest();
         }
         /// <summary>
         /// Prepares values needed to update the UI. Should be performed in backround thread. 

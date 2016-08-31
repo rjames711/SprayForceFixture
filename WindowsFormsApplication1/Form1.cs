@@ -187,15 +187,16 @@ namespace WindowsFormsApplication1
         {
             string root = getExportDataLocation();
             Console.WriteLine(root);
-            tests[0].writeSimpleExcelEntry(root);
+            
             try
             {
                 foreach (TestSession test in tests)
                 {                    
                     test.writeTest(root);
                     test.writeLongTest(root);
-                    
+                    test.writeSimpleExcelEntry(root);         
                 }
+                MessageBox.Show("Data Export Complete");
                 tests.Clear();
             }
             catch
@@ -243,18 +244,21 @@ namespace WindowsFormsApplication1
             }            
         }
 
-        private void reportButton_Click(object sender, EventArgs e)
-        {
-            string root = getExportDataLocation();
-            tests[0].writeExcelReport(root);
-        }
-
         private void browseButton_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog cf = new FolderBrowserDialog();
             cf.ShowDialog();
             exportLocationBox.Text = cf.SelectedPath;
             Properties.Settings.Default.defaultPath = exportLocationBox.Text;
+            Properties.Settings.Default.Save();
+        }
+
+        private void deCalibrate_Click(object sender, EventArgs e)
+        {
+            data.calibrationFactor = 1;
+            data.tare = 0;
+            Properties.Settings.Default.tare = data.tare;
+            Properties.Settings.Default.calibrationFactor = data.calibrationFactor;
             Properties.Settings.Default.Save();
         }
     }

@@ -123,8 +123,8 @@ namespace WindowsFormsApplication1
             var excelApp = new Excel.Application();
 
             object[][] sheet2Lines = new object[2][];
-            sheet2Lines[0] = new object[] { "Average Force", "Flow", "Pressure", "Date Tested", "Time", "Tested By","Values" };
-            sheet2Lines[1] = new object[] { averageForce, measuredFlow, measuredPressure, dateAndTime[0], dateAndTime[1], tester,values };
+            sheet2Lines[0] = new object[] { "Average Force", "Flow", "Pressure", "Date Tested", "Time", "Tested By","Notes","Values" };
+            sheet2Lines[1] = new object[] { averageForce, measuredFlow, measuredPressure, dateAndTime[0], dateAndTime[1], tester, testNotes, values };
             Excel.Workbook workbook;
        
             try
@@ -141,21 +141,26 @@ namespace WindowsFormsApplication1
             int startRow = 1;
 
             var cell = workSheet2.Cells[startRow + 1, 1];
+
+            //Advances pointer to the next empty row
             while (cell.Value2 != null)
             {
                 startRow++;
                 cell = workSheet2.Cells[startRow + 1, 1];
             }
-
+            //
             for (int i = 0; i < sheet2Lines[0].Length; i++)
             {
                 workSheet2.Cells[1, i + 1] = sheet2Lines[0][i];
                 if (sheet2Lines[1][i]  is List<double>)
                 {
-                  List<double>  a =  sheet2Lines[1][i] as List<double>;
-                    for (int j = 0; j < a.Count;j++)
-                        workSheet2.Cells[startRow + 1, i + 1 + j] = a[j];
-
+                    workSheet2.Cells[startRow + 1, i + 1] = sheet2Lines[0][i];
+                    List<double>  a =  sheet2Lines[1][i] as List<double>;
+                    for (int j = 0; j < a.Count; j++)
+                    {
+                        workSheet2.Cells[startRow + 1, i + 2 + j] = a[j];
+                        workSheet2.Cells[1, i + 2 + j] = j;
+                    }
                 }
                 else
                 {
