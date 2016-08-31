@@ -123,7 +123,7 @@ namespace WindowsFormsApplication1
             var excelApp = new Excel.Application();
 
             object[][] sheet2Lines = new object[2][];
-            sheet2Lines[0] = new object[] { "Average Force", "Flow", "Pressure", "Date Tested", "Time", "Tested By","Notes","Values" };
+            sheet2Lines[0] = new object[] { "Average Force", "Flow", "Pressure", "Date Tested", "Time", "Tested By","Notes","Data Point" };
             sheet2Lines[1] = new object[] { averageForce, measuredFlow, measuredPressure, dateAndTime[0], dateAndTime[1], tester, testNotes, values };
             Excel.Workbook workbook;
        
@@ -152,14 +152,17 @@ namespace WindowsFormsApplication1
             for (int i = 0; i < sheet2Lines[0].Length; i++)
             {
                 workSheet2.Cells[1, i + 1] = sheet2Lines[0][i];
+               
                 if (sheet2Lines[1][i]  is List<double>)
                 {
                     workSheet2.Cells[startRow + 1, i + 1] = sheet2Lines[0][i];
                     List<double>  a =  sheet2Lines[1][i] as List<double>;
                     for (int j = 0; j < a.Count; j++)
                     {
+                        if (j == 0)
+                            workSheet2.Cells[startRow + 1, i + 1 + j] = "Values";
                         workSheet2.Cells[startRow + 1, i + 2 + j] = a[j];
-                        workSheet2.Cells[1, i + 2 + j] = j;
+                        workSheet2.Cells[1, i + 2 + j] = j+1;
                     }
                 }
                 else
