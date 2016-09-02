@@ -23,7 +23,7 @@ namespace WindowsFormsApplication1
         public string tester;
         public string testName;
         public string testType;
-        public string units;
+        public string units; 
         double averageForce;
         double maxForce;
         double minForce;
@@ -123,8 +123,8 @@ namespace WindowsFormsApplication1
             var excelApp = new Excel.Application();
 
             object[][] sheet2Lines = new object[2][];
-            sheet2Lines[0] = new object[] { "Average Force", "Flow", "Pressure", "Date Tested", "Time", "Tested By","Notes","Data Point" };
-            sheet2Lines[1] = new object[] { averageForce, measuredFlow, measuredPressure, dateAndTime[0], dateAndTime[1], tester, testNotes, values };
+            sheet2Lines[0] = new object[] { "Average Force", "Flow", "Pressure", "Date Tested", "Time", "Tested By","Sample","Notes","Data Point" };
+            sheet2Lines[1] = new object[] { averageForce, measuredFlow, measuredPressure, dateAndTime[0], dateAndTime[1], tester, item, testNotes, values };
             Excel.Workbook workbook;
        
             try
@@ -166,19 +166,13 @@ namespace WindowsFormsApplication1
                     }
                 }
                 else
-                {
-                    
+                {                    
                     workSheet2.Cells[startRow + 1, i + 1] = sheet2Lines[1][i];
                 }
-
             }
-
-      
-
             workbook.Save();
             excelApp.Quit();
         }
-
 
         public void writeExcelReport(string root)
         {

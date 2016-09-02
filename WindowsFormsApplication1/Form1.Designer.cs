@@ -465,7 +465,7 @@ namespace WindowsFormsApplication1
             this.timeInputControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.timeInputControl.Size = new System.Drawing.Size(135, 24);
             this.timeInputControl.TabIndex = 7;
-            this.timeInputControl.Text = "2";
+            this.timeInputControl.Text = "10";
             // 
             // ForceReadingLabel
             // 
@@ -649,7 +649,7 @@ namespace WindowsFormsApplication1
             this.testNameComboBox.Name = "testNameComboBox";
             this.testNameComboBox.Size = new System.Drawing.Size(121, 21);
             this.testNameComboBox.TabIndex = 21;
-            this.testNameComboBox.Text = "TestName";
+            this.testNameComboBox.Text = "S-2272";
             // 
             // label10
             // 
@@ -690,7 +690,7 @@ namespace WindowsFormsApplication1
             this.TestNotesBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.TestNotesBox.Size = new System.Drawing.Size(263, 46);
             this.TestNotesBox.TabIndex = 18;
-            this.TestNotesBox.Text = "Test Notes2";
+            this.TestNotesBox.Text = "Test Fixture:   No Flow Control. Temp 100 F direct connection no seal ";
             // 
             // label3
             // 
@@ -704,7 +704,7 @@ namespace WindowsFormsApplication1
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(128, 24);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Shower Head ";
+            this.label3.Text = "Sample";
             // 
             // MeasureFlowBox
             // 
@@ -722,7 +722,7 @@ namespace WindowsFormsApplication1
             this.ItemBox.Name = "ItemBox";
             this.ItemBox.Size = new System.Drawing.Size(100, 20);
             this.ItemBox.TabIndex = 11;
-            this.ItemBox.Text = "None";
+            this.ItemBox.Text = "2";
             // 
             // label9
             // 
