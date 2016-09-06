@@ -224,10 +224,10 @@ namespace WindowsFormsApplication1
      //       Console.WriteLine(DateTime.Now.ToString());
         }
 
-        private void calibrateButton_Click(object sender, EventArgs e)
-        {
-            data.calibrate(Convert.ToDouble(calWeightBox.Text));
-        }
+        //private void calibrateButton_Click(object sender, EventArgs e)
+        //{
+        //    data.calibrate(Convert.ToDouble(calWeightBox.Text));
+        //}
 
         void setComboBoxItems(string path)
         {
@@ -260,6 +260,11 @@ namespace WindowsFormsApplication1
             Properties.Settings.Default.tare = data.tare;
             Properties.Settings.Default.calibrationFactor = data.calibrationFactor;
             Properties.Settings.Default.Save();
+        }
+
+        private void ForceGraph_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

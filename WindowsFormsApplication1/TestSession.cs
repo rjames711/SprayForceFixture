@@ -32,7 +32,8 @@ namespace WindowsFormsApplication1
         string[] dateAndTime;
         string measuredPressure;
         string testLength;
-
+        Form1 form;
+        List<string> Header1;
 
         public TestSession(List<double> values, string testName, string item, string units, string flowRate, string measuredFlow, string measuredPressure, string tester, string testNotes)
         {
@@ -55,6 +56,13 @@ namespace WindowsFormsApplication1
             dateAndTime = timeStamp.Split(' ');
             this.testLength = Convert.ToDouble(dataPoints / 10.0).ToString("N1");
 
+        }
+        public TestSession(Form1 form)
+        {
+            this.form = form;
+            
+            
+            
         }
 
         /// <summary>
