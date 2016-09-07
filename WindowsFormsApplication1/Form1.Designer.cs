@@ -230,7 +230,6 @@ namespace WindowsFormsApplication1
             this.testDetailsLayoutBox.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.testDetailsLayoutBox.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.testDetailsLayoutBox.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.testDetailsLayoutBox.Controls.Add(this.detailLabel4, 0, 3);
             this.testDetailsLayoutBox.Controls.Add(this.testNameComboBox, 1, 0);
             this.testDetailsLayoutBox.Controls.Add(this.detailLabel3, 0, 2);
             this.testDetailsLayoutBox.Controls.Add(this.detailLabel1, 0, 0);
@@ -242,6 +241,7 @@ namespace WindowsFormsApplication1
             this.testDetailsLayoutBox.Controls.Add(this.TesterBox, 3, 1);
             this.testDetailsLayoutBox.Controls.Add(this.MeasuredPressureBox, 3, 0);
             this.testDetailsLayoutBox.Controls.Add(this.detailLabel5, 2, 0);
+            this.testDetailsLayoutBox.Controls.Add(this.detailLabel4, 0, 3);
             this.testDetailsLayoutBox.Location = new System.Drawing.Point(216, 58);
             this.testDetailsLayoutBox.Name = "testDetailsLayoutBox";
             this.testDetailsLayoutBox.RowCount = 3;
@@ -611,6 +611,7 @@ namespace WindowsFormsApplication1
             this.ConnectButton.TabIndex = 6;
             this.ConnectButton.Text = "Connect";
             this.ConnectButton.UseVisualStyleBackColor = true;
+            this.ConnectButton.Click += new System.EventHandler(this.ConnectButton_Click);
             // 
             // tarebutton
             // 
@@ -630,6 +631,7 @@ namespace WindowsFormsApplication1
             this.startTestButton.TabIndex = 8;
             this.startTestButton.Text = "button3";
             this.startTestButton.UseVisualStyleBackColor = true;
+            this.startTestButton.Click += new System.EventHandler(this.startTestButton_Click);
             // 
             // Form1
             // 
