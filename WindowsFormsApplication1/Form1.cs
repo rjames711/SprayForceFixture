@@ -187,7 +187,10 @@ namespace WindowsFormsApplication1
         {
             string root = getExportDataLocation();
             Console.WriteLine(root);
-            
+
+            Form2 testform = new Form2();
+            testform.ShowDialog();
+
             try
             {
                 foreach (TestSession test in tests)

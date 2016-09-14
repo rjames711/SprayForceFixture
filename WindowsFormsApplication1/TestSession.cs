@@ -57,6 +57,12 @@ namespace WindowsFormsApplication1
             this.testLength = Convert.ToDouble(dataPoints / 10.0).ToString("N1");
 
         }
+
+        //should make a default test session for code testing purpose
+        public TestSession() : this(new List<double> { 1, 2 }, "atestName", "an item", "a flow rate", "a flow rate", "ameasureflow", "a measurepressure", "a rob", "a notes")
+        {
+            
+        }
         public TestSession(Form1 form)
         {
             this.form = form;
