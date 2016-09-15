@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
     class TestSession
     {
         List<double> values;
-        public string item;
+        public string item ;
         public string flowRate;
         public string measuredFlow;
         public string testNotes;
@@ -34,6 +34,9 @@ namespace WindowsFormsApplication1
         string testLength;
         Form1 form;
         List<string> Header1;
+
+
+
 
         public TestSession(List<double> values, string testName, string item, string units, string flowRate, string measuredFlow, string measuredPressure, string tester, string testNotes)
         {
