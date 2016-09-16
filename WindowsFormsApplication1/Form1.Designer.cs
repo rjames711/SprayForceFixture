@@ -62,7 +62,7 @@ namespace WindowsFormsApplication1
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.testDetailsLayoutBox = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.temperatureBox = new System.Windows.Forms.TextBox();
             this.testNameComboBox = new System.Windows.Forms.ComboBox();
             this.detailLabel3 = new System.Windows.Forms.Label();
             this.detailLabel1 = new System.Windows.Forms.Label();
@@ -375,7 +375,7 @@ namespace WindowsFormsApplication1
             this.testDetailsLayoutBox.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.testDetailsLayoutBox.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.testDetailsLayoutBox.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.testDetailsLayoutBox.Controls.Add(this.textBox1, 0, 3);
+            this.testDetailsLayoutBox.Controls.Add(this.temperatureBox, 0, 3);
             this.testDetailsLayoutBox.Controls.Add(this.testNameComboBox, 1, 0);
             this.testDetailsLayoutBox.Controls.Add(this.detailLabel3, 0, 2);
             this.testDetailsLayoutBox.Controls.Add(this.detailLabel1, 0, 0);
@@ -399,14 +399,14 @@ namespace WindowsFormsApplication1
             this.testDetailsLayoutBox.Size = new System.Drawing.Size(432, 165);
             this.testDetailsLayoutBox.TabIndex = 16;
             // 
-            // textBox1
+            // temperatureBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(113, 126);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(98, 20);
-            this.textBox1.TabIndex = 23;
-            this.textBox1.Text = "100";
+            this.temperatureBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.temperatureBox.Location = new System.Drawing.Point(113, 126);
+            this.temperatureBox.Name = "temperatureBox";
+            this.temperatureBox.Size = new System.Drawing.Size(98, 20);
+            this.temperatureBox.TabIndex = 23;
+            this.temperatureBox.Text = "100";
             // 
             // testNameComboBox
             // 
@@ -834,7 +834,7 @@ namespace WindowsFormsApplication1
         private Button startTestButton;
         private GroupBox groupBox4;
         private GroupBox groupBox3;
-        private TextBox textBox1;
+        private TextBox temperatureBox;
         private GroupBox groupBox2;
         private GroupBox groupBox1;
         private Label label4;

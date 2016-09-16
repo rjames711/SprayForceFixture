@@ -43,6 +43,7 @@ namespace WindowsFormsApplication1
         double graphPoint;
         string averageForce;
         string minForce;
+        
      
         string maxForce;        
         List<TestSession> tests = new List<TestSession>();
