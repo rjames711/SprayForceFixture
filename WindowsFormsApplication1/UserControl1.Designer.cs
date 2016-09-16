@@ -33,7 +33,6 @@ namespace WindowsFormsApplication1
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
-            this.ItemBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -56,6 +55,7 @@ namespace WindowsFormsApplication1
             this.MinForceLabel = new System.Windows.Forms.Label();
             this.DataPointsLabel = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.ItemBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -117,16 +117,6 @@ namespace WindowsFormsApplication1
             this.label5.Size = new System.Drawing.Size(67, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Temperature";
-            // 
-            // ItemBox
-            // 
-            this.ItemBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ItemBox.Location = new System.Drawing.Point(106, 29);
-            this.ItemBox.Margin = new System.Windows.Forms.Padding(0);
-            this.ItemBox.Name = "ItemBox";
-            this.ItemBox.Size = new System.Drawing.Size(100, 20);
-            this.ItemBox.TabIndex = 7;
-            this.ItemBox.Text = "A Sample";
             // 
             // label1
             // 
@@ -384,6 +374,17 @@ namespace WindowsFormsApplication1
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(46, 105);
             this.listBox1.TabIndex = 0;
+            // 
+            // ItemBox
+            // 
+            this.ItemBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ItemBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WindowsFormsApplication1.Properties.Settings.Default, "item", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.ItemBox.Location = new System.Drawing.Point(106, 29);
+            this.ItemBox.Margin = new System.Windows.Forms.Padding(0);
+            this.ItemBox.Name = "ItemBox";
+            this.ItemBox.Size = new System.Drawing.Size(100, 20);
+            this.ItemBox.TabIndex = 7;
+            this.ItemBox.Text = global::WindowsFormsApplication1.Properties.Settings.Default.item;
             // 
             // UserControl1
             // 

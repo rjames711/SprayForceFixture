@@ -32,7 +32,7 @@ namespace WindowsFormsApplication1
         string[] dateAndTime;
         string measuredPressure;
         string testLength;
-        Form1 form;
+        UserControl1 userInput;
         List<string> Header1;
 
 
@@ -58,7 +58,6 @@ namespace WindowsFormsApplication1
             timeStamp = time.ToString();
             dateAndTime = timeStamp.Split(' ');
             this.testLength = Convert.ToDouble(dataPoints / 10.0).ToString("N1");
-
         }
 
         //should make a default test session for code testing purpose
@@ -66,13 +65,7 @@ namespace WindowsFormsApplication1
         {
             
         }
-        public TestSession(Form1 form)
-        {
-            this.form = form;
-            
-            
-            
-        }
+
 
         /// <summary>
         /// Writes test summary without full list of datapoints. 

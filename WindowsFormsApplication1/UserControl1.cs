@@ -44,7 +44,7 @@ namespace WindowsFormsApplication1
             foreach (Control input in tableLayoutPanel1.Controls)
             {               
                 if (input is TextBox || input is ComboBox)
-                    alist.Add(input.Text);
+                    alist.Add(String.Copy((input.Text)));
                     //Console.Write(input.Text);
             }
             return alist;

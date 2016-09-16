@@ -58,5 +58,17 @@ namespace WindowsFormsApplication1.Properties {
                 this["tare"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("A Sample")]
+        public string item {
+            get {
+                return ((string)(this["item"]));
+            }
+            set {
+                this["item"] = value;
+            }
+        }
     }
 }
