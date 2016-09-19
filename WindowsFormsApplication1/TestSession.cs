@@ -32,11 +32,10 @@ namespace WindowsFormsApplication1
         string[] dateAndTime;
         string measuredPressure;
         string testLength;
-        UserControl1 userInput;
-        List<string> Header1;
+        TestData d;
 
 
-
+#region constructors
 
         public TestSession(List<double> values, string testName, string item, string units, string flowRate, string measuredFlow, string measuredPressure, string tester, string testNotes)
         {
@@ -66,7 +65,39 @@ namespace WindowsFormsApplication1
             
         }
 
+        public TestSession(TestData d)
+        {
+            this.d = d;
+            copyData();
+        }
 
+        public void copyData()
+        {
+            this.values = d.Values;
+            this.item = d.Item;
+            this.flowRate = d.FlowRate;
+            this.measuredFlow = d.MeasuredFlow;
+            this.testNotes = d.TestNotes;
+            this.tester = d.Tester;
+            this.testName = d.TestName;
+            this.testType = d.TestType;
+            this.units = d.Units;
+            this.averageForce = d.AverageForce;
+            this.maxForce = d.MaxForce;
+            this.minForce = d.MinForce;
+            this.dataPoints = d.DataPoints;
+            this.timeStamp = d.TimeStamp;
+            this.dateAndTime = d.DateAndTime;
+            this.measuredPressure = d.MeasuredPressure;
+            this.testLength = d.TestLength;
+           
+        }
+
+        #endregion
+
+
+
+        #region export methods
         /// <summary>
         /// Writes test summary without full list of datapoints. 
         /// Creates new file if name does't exist. Appends to file if does exist
@@ -423,6 +454,6 @@ namespace WindowsFormsApplication1
             excelApp.Quit();
 
         }
-
+        #endregion
     }
 }
