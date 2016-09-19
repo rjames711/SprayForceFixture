@@ -426,10 +426,10 @@ namespace WindowsFormsApplication1
             // 
             this.ExportRadioButton.AutoSize = true;
             this.ExportRadioButton.Checked = true;
-            this.ExportRadioButton.Location = new System.Drawing.Point(16, 7);
+            this.ExportRadioButton.Location = new System.Drawing.Point(0, 2);
             this.ExportRadioButton.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.ExportRadioButton.Name = "ExportRadioButton";
-            this.ExportRadioButton.Size = new System.Drawing.Size(85, 17);
+            this.ExportRadioButton.Size = new System.Drawing.Size(55, 17);
             this.ExportRadioButton.TabIndex = 0;
             this.ExportRadioButton.TabStop = true;
             this.ExportRadioButton.Text = "Export";
@@ -438,10 +438,10 @@ namespace WindowsFormsApplication1
             // DontExportRadioButton
             // 
             this.DontExportRadioButton.AutoSize = true;
-            this.DontExportRadioButton.Location = new System.Drawing.Point(16, 40);
+            this.DontExportRadioButton.Location = new System.Drawing.Point(0, 35);
             this.DontExportRadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.DontExportRadioButton.Name = "DontExportRadioButton";
-            this.DontExportRadioButton.Size = new System.Drawing.Size(85, 17);
+            this.DontExportRadioButton.Size = new System.Drawing.Size(83, 17);
             this.DontExportRadioButton.TabIndex = 1;
             this.DontExportRadioButton.Text = "Don\'t Export";
             this.DontExportRadioButton.UseVisualStyleBackColor = true;
@@ -449,10 +449,10 @@ namespace WindowsFormsApplication1
             // deleteRadioButton
             // 
             this.deleteRadioButton.AutoSize = true;
-            this.deleteRadioButton.Location = new System.Drawing.Point(16, 77);
+            this.deleteRadioButton.Location = new System.Drawing.Point(0, 70);
             this.deleteRadioButton.Margin = new System.Windows.Forms.Padding(0);
             this.deleteRadioButton.Name = "deleteRadioButton";
-            this.deleteRadioButton.Size = new System.Drawing.Size(85, 17);
+            this.deleteRadioButton.Size = new System.Drawing.Size(56, 17);
             this.deleteRadioButton.TabIndex = 2;
             this.deleteRadioButton.Text = "Delete";
             this.deleteRadioButton.UseVisualStyleBackColor = true;
@@ -487,35 +487,35 @@ namespace WindowsFormsApplication1
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox ItemBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox temperatureBox;
-        private System.Windows.Forms.TextBox TesterBox;
-        private System.Windows.Forms.ComboBox testNameComboBox;
-        private System.Windows.Forms.TextBox TestNotesBox;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label averageForceLabel;
-        private System.Windows.Forms.Label MaxForceLabel;
-        private System.Windows.Forms.Label MinForceLabel;
-        private System.Windows.Forms.Label DataPointsLabel;
-        private System.Windows.Forms.ListBox listBox1;
         private GroupBox groupBox1;
-        private TextBox MeasuredPressureBox;
-        private TextBox MeasureFlowBox;
-        private GroupBox groupBox3;
         private TableLayoutPanel tableLayoutPanel3;
         public RadioButton ExportRadioButton;
         public RadioButton DontExportRadioButton;
         public RadioButton deleteRadioButton;
+        public TextBox ItemBox;
+        public TextBox temperatureBox;
+        public TextBox TesterBox;
+        public ComboBox testNameComboBox;
+        public TextBox TestNotesBox;
+        public TextBox MeasuredPressureBox;
+        public TextBox MeasureFlowBox;
+        public Label averageForceLabel;
+        public Label MaxForceLabel;
+        public Label MinForceLabel;
+        public Label DataPointsLabel;
+        public ListBox listBox1;
+        public GroupBox groupBox3;
 
 
         ///// Added getters and setters for all fields in this control.

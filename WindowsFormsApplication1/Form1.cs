@@ -63,7 +63,7 @@ namespace WindowsFormsApplication1
             //exportLocationBox.Text = Properties.Settings.Default.defaultPath;
             exportLocationBox.Text = defaultPath;
             setComboBoxItems(defaultPath);
-
+            d.groupBox3.Hide();
 
 
         }
@@ -97,7 +97,7 @@ namespace WindowsFormsApplication1
                     return;
                 startNewTest();
             }
-            listBox1.Items.Clear();
+            d.listBox1.Items.Clear();
             data.forceValues.Clear();
         }
 
@@ -124,9 +124,9 @@ namespace WindowsFormsApplication1
         void recordSwitch(object sender, EventArgs e)
         {
             recording = !recording;
-            averageForceLabel.Text = formatForDisplay(data.forceValues.Average());
-            MaxForceLabel.Text = formatForDisplay(data.forceValues.Max());
-            MinForceLabel.Text = formatForDisplay(data.forceValues.Min());
+            d.averageForceLabel.Text = formatForDisplay(data.forceValues.Average());
+            d.MaxForceLabel.Text = formatForDisplay(data.forceValues.Max());
+            d.MinForceLabel.Text = formatForDisplay(data.forceValues.Min());
         }
 
         String formatForDisplay(double value)
@@ -254,7 +254,7 @@ namespace WindowsFormsApplication1
             {
                 StringBuilder name = new StringBuilder(file.ToString());
                 name.Replace(".csv", "");
-                testNameComboBox.Items.Add(name);
+                d.testNameComboBox.Items.Add(name);
             }            
         }
 

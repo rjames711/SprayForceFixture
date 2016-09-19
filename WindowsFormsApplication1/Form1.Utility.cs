@@ -85,11 +85,11 @@ namespace WindowsFormsApplication1
             ForceReadingLabel.Text = formatForDisplay(force);
             if (recording && count > 0 && count <= testInterval * data.dps)
             {
-                listBox1.Items.Add(UI_Force);
-                averageForceLabel.Text = averageForce;
-                MaxForceLabel.Text = maxForce;
-                MinForceLabel.Text = minForce;
-                DataPointsLabel.Text = count.ToString();
+                d.listBox1.Items.Add(UI_Force);
+                d.averageForceLabel.Text = averageForce;
+                d.MaxForceLabel.Text = maxForce;
+                d.MinForceLabel.Text = minForce;
+                d.DataPointsLabel.Text = count.ToString();
             }
 
             else
@@ -122,8 +122,8 @@ namespace WindowsFormsApplication1
         /// </summary>
         void resetTest()
         {
-            tests.Add(new TestSession(new TestData(data.forceValues, testNameComboBox.Text, ItemBox.Text, data.unit, "", 
-                MeasureFlowBox.Text, MeasuredPressureBox.Text, TesterBox.Text, TestNotesBox.Text)));
+            tests.Add(new TestSession(new TestData(data.forceValues, d.testNameComboBox.Text, d.ItemBox.Text, data.unit, "",
+            d.MeasureFlowBox.Text, d.MeasuredPressureBox.Text, d.TesterBox.Text, d.TestNotesBox.Text)));
             recording = false;
             data.recording = false;
             graphPoint = 0;           
