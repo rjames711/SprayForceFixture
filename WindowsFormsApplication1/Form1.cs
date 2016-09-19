@@ -196,17 +196,22 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("Data Export Cancelled");
                 return;
             }
-
+            
             try
             {
                 foreach (TestSession test in tests)
-                {                    
+                {   if (!test.export)
+                        continue;                 
                     test.writeTest(root);
                     test.writeLongTest(root);
                     test.writeSimpleExcelEntry(root);         
                 }
+
+                tests.RemoveAll(item => item.delete == true);   //remove all tests marked for deletion with the radio button.
+                tests.RemoveAll(item => item.export == true);   //remove all tests marked for deletion with the radio button.
                 MessageBox.Show("Data Export Complete");
-                tests.Clear();
+
+               // tests.Clear();
             }
             catch
             {

@@ -33,6 +33,7 @@ namespace WindowsFormsApplication1
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
+            this.ItemBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,11 +56,17 @@ namespace WindowsFormsApplication1
             this.MinForceLabel = new System.Windows.Forms.Label();
             this.DataPointsLabel = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.ItemBox = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.ExportRadioButton = new System.Windows.Forms.RadioButton();
+            this.DontExportRadioButton = new System.Windows.Forms.RadioButton();
+            this.deleteRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -69,7 +76,7 @@ namespace WindowsFormsApplication1
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(422, 124);
+            this.groupBox1.Size = new System.Drawing.Size(463, 124);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Test Details";
@@ -104,19 +111,30 @@ namespace WindowsFormsApplication1
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(416, 104);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(457, 104);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(209, 7);
+            this.label5.Location = new System.Drawing.Point(229, 7);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Temperature";
+            // 
+            // ItemBox
+            // 
+            this.ItemBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.ItemBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WindowsFormsApplication1.Properties.Settings.Default, "item", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.ItemBox.Location = new System.Drawing.Point(116, 29);
+            this.ItemBox.Margin = new System.Windows.Forms.Padding(0);
+            this.ItemBox.Name = "ItemBox";
+            this.ItemBox.Size = new System.Drawing.Size(100, 20);
+            this.ItemBox.TabIndex = 7;
+            this.ItemBox.Text = global::WindowsFormsApplication1.Properties.Settings.Default.item;
             // 
             // label1
             // 
@@ -165,7 +183,7 @@ namespace WindowsFormsApplication1
             // MeasuredPressureBox
             // 
             this.MeasuredPressureBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.MeasuredPressureBox.Location = new System.Drawing.Point(106, 79);
+            this.MeasuredPressureBox.Location = new System.Drawing.Point(116, 79);
             this.MeasuredPressureBox.Margin = new System.Windows.Forms.Padding(0);
             this.MeasuredPressureBox.Name = "MeasuredPressureBox";
             this.MeasuredPressureBox.Size = new System.Drawing.Size(100, 20);
@@ -174,7 +192,7 @@ namespace WindowsFormsApplication1
             // MeasureFlowBox
             // 
             this.MeasureFlowBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.MeasureFlowBox.Location = new System.Drawing.Point(106, 54);
+            this.MeasureFlowBox.Location = new System.Drawing.Point(116, 54);
             this.MeasureFlowBox.Margin = new System.Windows.Forms.Padding(0);
             this.MeasureFlowBox.Name = "MeasureFlowBox";
             this.MeasureFlowBox.Size = new System.Drawing.Size(100, 20);
@@ -184,7 +202,7 @@ namespace WindowsFormsApplication1
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(209, 32);
+            this.label6.Location = new System.Drawing.Point(229, 32);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(97, 13);
@@ -194,7 +212,7 @@ namespace WindowsFormsApplication1
             // temperatureBox
             // 
             this.temperatureBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.temperatureBox.Location = new System.Drawing.Point(312, 4);
+            this.temperatureBox.Location = new System.Drawing.Point(342, 4);
             this.temperatureBox.Margin = new System.Windows.Forms.Padding(0);
             this.temperatureBox.Name = "temperatureBox";
             this.temperatureBox.Size = new System.Drawing.Size(100, 20);
@@ -203,7 +221,7 @@ namespace WindowsFormsApplication1
             // TesterBox
             // 
             this.TesterBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.TesterBox.Location = new System.Drawing.Point(312, 29);
+            this.TesterBox.Location = new System.Drawing.Point(342, 29);
             this.TesterBox.Margin = new System.Windows.Forms.Padding(0);
             this.TesterBox.Name = "TesterBox";
             this.TesterBox.Size = new System.Drawing.Size(100, 20);
@@ -213,7 +231,7 @@ namespace WindowsFormsApplication1
             // 
             this.testNameComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.testNameComboBox.FormattingEnabled = true;
-            this.testNameComboBox.Location = new System.Drawing.Point(106, 3);
+            this.testNameComboBox.Location = new System.Drawing.Point(116, 3);
             this.testNameComboBox.Margin = new System.Windows.Forms.Padding(0);
             this.testNameComboBox.Name = "testNameComboBox";
             this.testNameComboBox.Size = new System.Drawing.Size(100, 21);
@@ -224,12 +242,12 @@ namespace WindowsFormsApplication1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.TestNotesBox, 2);
             this.TestNotesBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TestNotesBox.Location = new System.Drawing.Point(209, 53);
+            this.TestNotesBox.Location = new System.Drawing.Point(229, 53);
             this.TestNotesBox.Margin = new System.Windows.Forms.Padding(0);
             this.TestNotesBox.Multiline = true;
             this.TestNotesBox.Name = "TestNotesBox";
             this.tableLayoutPanel1.SetRowSpan(this.TestNotesBox, 2);
-            this.TestNotesBox.Size = new System.Drawing.Size(204, 48);
+            this.TestNotesBox.Size = new System.Drawing.Size(225, 48);
             this.TestNotesBox.TabIndex = 4;
             // 
             // groupBox2
@@ -238,9 +256,9 @@ namespace WindowsFormsApplication1
             this.groupBox2.Controls.Add(this.listBox1);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(422, 0);
+            this.groupBox2.Location = new System.Drawing.Point(463, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(216, 124);
+            this.groupBox2.Size = new System.Drawing.Size(180, 124);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Result Summary";
@@ -266,7 +284,7 @@ namespace WindowsFormsApplication1
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(164, 105);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(128, 105);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // label9
@@ -274,7 +292,7 @@ namespace WindowsFormsApplication1
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(12, 0);
+            this.label9.Location = new System.Drawing.Point(3, 0);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 26);
@@ -286,10 +304,10 @@ namespace WindowsFormsApplication1
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(8, 32);
+            this.label10.Location = new System.Drawing.Point(12, 26);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 13);
+            this.label10.Size = new System.Drawing.Size(39, 26);
             this.label10.TabIndex = 0;
             this.label10.Text = "Max Force";
             // 
@@ -298,7 +316,7 @@ namespace WindowsFormsApplication1
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(9, 58);
+            this.label11.Location = new System.Drawing.Point(0, 58);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 13);
@@ -310,10 +328,10 @@ namespace WindowsFormsApplication1
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(4, 85);
+            this.label12.Location = new System.Drawing.Point(11, 78);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 13);
+            this.label12.Size = new System.Drawing.Size(42, 26);
             this.label12.TabIndex = 0;
             this.label12.Text = "Data Points";
             // 
@@ -322,7 +340,7 @@ namespace WindowsFormsApplication1
             this.averageForceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.averageForceLabel.AutoSize = true;
             this.averageForceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.averageForceLabel.Location = new System.Drawing.Point(110, 6);
+            this.averageForceLabel.Location = new System.Drawing.Point(83, 6);
             this.averageForceLabel.Margin = new System.Windows.Forms.Padding(0);
             this.averageForceLabel.Name = "averageForceLabel";
             this.averageForceLabel.Size = new System.Drawing.Size(25, 13);
@@ -334,7 +352,7 @@ namespace WindowsFormsApplication1
             this.MaxForceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MaxForceLabel.AutoSize = true;
             this.MaxForceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaxForceLabel.Location = new System.Drawing.Point(110, 32);
+            this.MaxForceLabel.Location = new System.Drawing.Point(83, 32);
             this.MaxForceLabel.Margin = new System.Windows.Forms.Padding(0);
             this.MaxForceLabel.Name = "MaxForceLabel";
             this.MaxForceLabel.Size = new System.Drawing.Size(25, 13);
@@ -346,7 +364,7 @@ namespace WindowsFormsApplication1
             this.MinForceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MinForceLabel.AutoSize = true;
             this.MinForceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinForceLabel.Location = new System.Drawing.Point(110, 58);
+            this.MinForceLabel.Location = new System.Drawing.Point(83, 58);
             this.MinForceLabel.Margin = new System.Windows.Forms.Padding(0);
             this.MinForceLabel.Name = "MinForceLabel";
             this.MinForceLabel.Size = new System.Drawing.Size(25, 13);
@@ -358,7 +376,7 @@ namespace WindowsFormsApplication1
             this.DataPointsLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DataPointsLabel.AutoSize = true;
             this.DataPointsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DataPointsLabel.Location = new System.Drawing.Point(116, 85);
+            this.DataPointsLabel.Location = new System.Drawing.Point(89, 85);
             this.DataPointsLabel.Margin = new System.Windows.Forms.Padding(0);
             this.DataPointsLabel.Name = "DataPointsLabel";
             this.DataPointsLabel.Size = new System.Drawing.Size(14, 13);
@@ -375,16 +393,69 @@ namespace WindowsFormsApplication1
             this.listBox1.Size = new System.Drawing.Size(46, 105);
             this.listBox1.TabIndex = 0;
             // 
-            // ItemBox
+            // groupBox3
             // 
-            this.ItemBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.ItemBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WindowsFormsApplication1.Properties.Settings.Default, "item", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ItemBox.Location = new System.Drawing.Point(106, 29);
-            this.ItemBox.Margin = new System.Windows.Forms.Padding(0);
-            this.ItemBox.Name = "ItemBox";
-            this.ItemBox.Size = new System.Drawing.Size(100, 20);
-            this.ItemBox.TabIndex = 7;
-            this.ItemBox.Text = global::WindowsFormsApplication1.Properties.Settings.Default.item;
+            this.groupBox3.Controls.Add(this.tableLayoutPanel3);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.groupBox3.Location = new System.Drawing.Point(643, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(129, 124);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Export Options";
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel3.Controls.Add(this.ExportRadioButton, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.DontExportRadioButton, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.deleteRadioButton, 0, 2);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(123, 105);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // ExportRadioButton
+            // 
+            this.ExportRadioButton.AutoSize = true;
+            this.ExportRadioButton.Checked = true;
+            this.ExportRadioButton.Location = new System.Drawing.Point(16, 7);
+            this.ExportRadioButton.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.ExportRadioButton.Name = "ExportRadioButton";
+            this.ExportRadioButton.Size = new System.Drawing.Size(85, 17);
+            this.ExportRadioButton.TabIndex = 0;
+            this.ExportRadioButton.TabStop = true;
+            this.ExportRadioButton.Text = "Export";
+            this.ExportRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // DontExportRadioButton
+            // 
+            this.DontExportRadioButton.AutoSize = true;
+            this.DontExportRadioButton.Location = new System.Drawing.Point(16, 40);
+            this.DontExportRadioButton.Margin = new System.Windows.Forms.Padding(0);
+            this.DontExportRadioButton.Name = "DontExportRadioButton";
+            this.DontExportRadioButton.Size = new System.Drawing.Size(85, 17);
+            this.DontExportRadioButton.TabIndex = 1;
+            this.DontExportRadioButton.Text = "Don\'t Export";
+            this.DontExportRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // deleteRadioButton
+            // 
+            this.deleteRadioButton.AutoSize = true;
+            this.deleteRadioButton.Location = new System.Drawing.Point(16, 77);
+            this.deleteRadioButton.Margin = new System.Windows.Forms.Padding(0);
+            this.deleteRadioButton.Name = "deleteRadioButton";
+            this.deleteRadioButton.Size = new System.Drawing.Size(85, 17);
+            this.deleteRadioButton.TabIndex = 2;
+            this.deleteRadioButton.Text = "Delete";
+            this.deleteRadioButton.UseVisualStyleBackColor = true;
             // 
             // UserControl1
             // 
@@ -392,14 +463,18 @@ namespace WindowsFormsApplication1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox3);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(638, 124);
+            this.Size = new System.Drawing.Size(772, 124);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -436,6 +511,11 @@ namespace WindowsFormsApplication1
         private GroupBox groupBox1;
         private TextBox MeasuredPressureBox;
         private TextBox MeasureFlowBox;
+        private GroupBox groupBox3;
+        private TableLayoutPanel tableLayoutPanel3;
+        public RadioButton ExportRadioButton;
+        public RadioButton DontExportRadioButton;
+        public RadioButton deleteRadioButton;
 
 
         ///// Added getters and setters for all fields in this control.

@@ -60,6 +60,8 @@ namespace WindowsFormsApplication1
             d.Temperature = temperatureBox.Text;
             d.Tester = TesterBox.Text;
             d.TestNotes = TestNotesBox.Text;
+            d.Export=ExportRadioButton.Checked;
+            d.Delete = deleteRadioButton.Checked;
         }
         public void setUserInput()
         {

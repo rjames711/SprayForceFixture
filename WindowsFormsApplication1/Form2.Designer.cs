@@ -52,9 +52,10 @@
             // 
             // CancelExportButton
             // 
-            this.CancelExportButton.Location = new System.Drawing.Point(132, 4);
+            this.CancelExportButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.CancelExportButton.Location = new System.Drawing.Point(0, 0);
             this.CancelExportButton.Name = "CancelExportButton";
-            this.CancelExportButton.Size = new System.Drawing.Size(97, 23);
+            this.CancelExportButton.Size = new System.Drawing.Size(97, 30);
             this.CancelExportButton.TabIndex = 1;
             this.CancelExportButton.Text = "Cancel Export";
             this.CancelExportButton.UseVisualStyleBackColor = true;
@@ -62,9 +63,10 @@
             // 
             // FinishExportButton
             // 
-            this.FinishExportButton.Location = new System.Drawing.Point(508, 4);
+            this.FinishExportButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.FinishExportButton.Location = new System.Drawing.Point(577, 0);
             this.FinishExportButton.Name = "FinishExportButton";
-            this.FinishExportButton.Size = new System.Drawing.Size(108, 23);
+            this.FinishExportButton.Size = new System.Drawing.Size(108, 30);
             this.FinishExportButton.TabIndex = 0;
             this.FinishExportButton.Text = "Finish Export";
             this.FinishExportButton.UseVisualStyleBackColor = true;
@@ -110,7 +112,7 @@
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(700, 300);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Export Dialog";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

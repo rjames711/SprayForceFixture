@@ -146,7 +146,7 @@ namespace WindowsFormsApplication1
                 if (mainPanel.Controls[i] is UserControl1)
                 {
                     UserControl1 input = mainPanel.Controls[i] as UserControl1;
-                    input.getUserInput();
+                    input.getUserInput();    
                 }               
             }
             foreach (TestSession test in tests)

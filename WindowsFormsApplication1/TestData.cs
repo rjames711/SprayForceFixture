@@ -26,6 +26,8 @@ namespace WindowsFormsApplication1
         private string measuredPressure;
         private string testLength;
         private string temperature;
+        public bool Export { get; internal set; }
+        public bool Delete { get; internal set; }
 
         public TestData(List<double> values, string testName, string item, string units, string flowRate, string measuredFlow, string measuredPressure, string tester, string testNotes)
         {
@@ -47,6 +49,7 @@ namespace WindowsFormsApplication1
             timeStamp = time.ToString();
             dateAndTime = timeStamp.Split(' ');
             this.testLength = Convert.ToDouble(dataPoints / 10.0).ToString("N1");
+
         }
 
         #region getter and setters
@@ -283,6 +286,8 @@ namespace WindowsFormsApplication1
                 temperature = value;
             }
         }
+
+
         #endregion
     }
 }

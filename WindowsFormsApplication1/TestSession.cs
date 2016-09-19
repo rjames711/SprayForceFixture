@@ -33,9 +33,33 @@ namespace WindowsFormsApplication1
         string measuredPressure;
         string testLength;
         public TestData d;
+        public bool export=true;
+        public bool delete = false;
 
 
-#region constructors
+        public void copyData()
+        {
+            this.values = d.Values;
+            this.item = d.Item;
+            this.flowRate = d.FlowRate;
+            this.measuredFlow = d.MeasuredFlow;
+            this.testNotes = d.TestNotes;
+            this.tester = d.Tester;
+            this.testName = d.TestName;
+            this.testType = d.TestType;
+            this.units = d.Units;
+            this.averageForce = d.AverageForce;
+            this.maxForce = d.MaxForce;
+            this.minForce = d.MinForce;
+            this.dataPoints = d.DataPoints;
+            this.timeStamp = d.TimeStamp;
+            this.dateAndTime = d.DateAndTime;
+            this.measuredPressure = d.MeasuredPressure;
+            this.testLength = d.TestLength;
+            this.export = d.Export;
+            this.delete = d.Delete;
+        }
+        #region constructors
 
         public TestSession(List<double> values, string testName, string item, string units, string flowRate, string measuredFlow, string measuredPressure, string tester, string testNotes)
         {
@@ -71,27 +95,7 @@ namespace WindowsFormsApplication1
             copyData();
         }
 
-        public void copyData()
-        {
-            this.values = d.Values;
-            this.item = d.Item;
-            this.flowRate = d.FlowRate;
-            this.measuredFlow = d.MeasuredFlow;
-            this.testNotes = d.TestNotes;
-            this.tester = d.Tester;
-            this.testName = d.TestName;
-            this.testType = d.TestType;
-            this.units = d.Units;
-            this.averageForce = d.AverageForce;
-            this.maxForce = d.MaxForce;
-            this.minForce = d.MinForce;
-            this.dataPoints = d.DataPoints;
-            this.timeStamp = d.TimeStamp;
-            this.dateAndTime = d.DateAndTime;
-            this.measuredPressure = d.MeasuredPressure;
-            this.testLength = d.TestLength;
-           
-        }
+
 
         #endregion
 
