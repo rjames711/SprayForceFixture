@@ -189,7 +189,7 @@ namespace WindowsFormsApplication1
             string root = getExportDataLocation();
             Console.WriteLine(root);
 
-            Form2 testform = new Form2();
+            Form2 testform = new Form2(tests);
             testform.ShowDialog();
 
             try

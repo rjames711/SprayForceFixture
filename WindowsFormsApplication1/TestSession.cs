@@ -13,7 +13,7 @@ namespace WindowsFormsApplication1
     /// Represents one session of testing. Contains all data points and any entered test data. Also contains methods 
     /// to save data to csv files.
     /// </summary>
-    class TestSession
+  public  class TestSession
     {
         List<double> values;
         public string item ;
@@ -32,7 +32,7 @@ namespace WindowsFormsApplication1
         string[] dateAndTime;
         string measuredPressure;
         string testLength;
-        TestData d;
+        public TestData d;
 
 
 #region constructors

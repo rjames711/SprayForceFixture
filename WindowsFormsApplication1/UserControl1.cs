@@ -12,14 +12,15 @@ namespace WindowsFormsApplication1
 {
     public partial class UserControl1 : UserControl
     {
-        public string testName { get; set; }
-        public string item { get; set; }
-        public string flow { get; set; }
-        public string pressure { get; set; }
-        public string temperature { get; set; }
-        public string tester { get; set; }
-        public string testNotes { get; set; }
 
+        public TestData d;
+
+        public UserControl1(TestData d)
+        {
+            InitializeComponent();
+            this.d = d;
+            setUserInput();
+        }
 
         public UserControl1()
         {
@@ -28,7 +29,7 @@ namespace WindowsFormsApplication1
         }
         public void setTitle(int testNumber)
         {
-            groupBox1.Text += ": Test"+testNumber;
+            groupBox1.Text += ": Test" + testNumber;
             groupBox2.Text += ": Test" + testNumber;
         }
 
@@ -42,25 +43,44 @@ namespace WindowsFormsApplication1
         {
             List<string> alist = new List<string>();
             foreach (Control input in tableLayoutPanel1.Controls)
-            {               
+            {
                 if (input is TextBox || input is ComboBox)
                     alist.Add(String.Copy((input.Text)));
-                    //Console.Write(input.Text);
+                //Console.Write(input.Text);
             }
             return alist;
-    }
+        }
 
         public void getUserInput()
         {
-         testName=testNameComboBox.Text;
-         item=ItemBox.Text;
-         flow=MeasureFlowBox.Text;
-         pressure=MeasuredPressureBox.Text;
-         temperature=temperatureBox.Text;
-         tester=TesterBox.Text;
-         testNotes=TestNotesBox.Text;
-    }
+            d.TestName = testNameComboBox.Text;
+            d.Item = ItemBox.Text;
+            d.MeasuredFlow = MeasureFlowBox.Text;
+            d.MeasuredPressure = MeasuredPressureBox.Text;
+            d.Temperature = temperatureBox.Text;
+            d.Tester = TesterBox.Text;
+            d.TestNotes = TestNotesBox.Text;
+        }
+        public void setUserInput()
+        {
+            testNameComboBox.Text = d.TestName;
+            ItemBox.Text = d.Item;
+            MeasureFlowBox.Text = d.MeasuredFlow;
+            MeasuredPressureBox.Text = d.MeasuredPressure;
+            temperatureBox.Text = d.Temperature;
+            TesterBox.Text = d.Tester;
+            TestNotesBox.Text = d.TestNotes;
+            MaxForceLabel.Text = formatForDisplay(d.MaxForce);
+            MinForceLabel.Text = formatForDisplay(d.MinForce);
+            averageForceLabel.Text = formatForDisplay(d.AverageForce);
+            DataPointsLabel.Text = d.DataPoints.ToString();
 
+        }
+
+        String formatForDisplay(double value)
+        {
+            return (Math.Round(value, 2)).ToString("N1") + " " + d.Units;
+        }
     }
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    class TestData
+    public class TestData
     {
         private List<double> values;
         private string item;
@@ -25,6 +25,7 @@ namespace WindowsFormsApplication1
         private string[] dateAndTime;
         private string measuredPressure;
         private string testLength;
+        private string temperature;
 
         public TestData(List<double> values, string testName, string item, string units, string flowRate, string measuredFlow, string measuredPressure, string tester, string testNotes)
         {
@@ -267,6 +268,19 @@ namespace WindowsFormsApplication1
             set
             {
                 testLength = value;
+            }
+        }
+
+        public string Temperature
+        {
+            get
+            {
+                return temperature;
+            }
+
+            set
+            {
+                temperature = value;
             }
         }
         #endregion
