@@ -13,6 +13,8 @@ namespace WindowsFormsApplication1
     public partial class Form2 : Form
     {
   //      Panel mainPanel = new Panel();
+        public  bool exportData { get; set; } = false; 
+        
         List<TestSession> tests;
 
         public Form2(List<TestSession> tests)
@@ -32,12 +34,12 @@ namespace WindowsFormsApplication1
 
         public void populate3()
         {
-            this.Controls.Add(mainPanel);
+            //this.Controls.Add(mainPanel);
             //mainPanel.Dock = DockStyle.Fill;
             //mainPanel.AutoScroll = true;
-            Label top = new Label();
-            top.Text = "Test Sessions Ready For export";
-            top.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
+            //Label top = new Label();
+            //top.Text = "Test Sessions Ready For export";
+            //top.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Bold);
 
             for (int i = 0; i < tests.Count; i++)
             {
@@ -56,9 +58,9 @@ namespace WindowsFormsApplication1
             // mainPanel.AutoScrollOffset = new Point(0, 0);
             //  TableLayoutPanel topbox = box.Controls[0] as TableLayoutPanel;
             // top.Select();
-            mainPanel.Controls.Add(top);
-            top.Dock = DockStyle.Top;
-            top.Select();
+            //mainPanel.Controls.Add(top);
+            //top.Dock = DockStyle.Top;
+            topLabel.Select();
 
         }
 
@@ -145,11 +147,18 @@ namespace WindowsFormsApplication1
                 {
                     UserControl1 input = mainPanel.Controls[i] as UserControl1;
                     input.getUserInput();
-                }
-               
+                }               
             }
             foreach (TestSession test in tests)
                 test.copyData();
+
+            exportData = true;
+            this.Close();
+        }
+
+        private void CancelExportButton_Click(object sender, EventArgs e)
+        {
+            exportData = false;
             this.Close();
         }
     }

@@ -191,6 +191,11 @@ namespace WindowsFormsApplication1
 
             Form2 testform = new Form2(tests);
             testform.ShowDialog();
+            if (!testform.exportData)
+            {
+                MessageBox.Show("Data Export Cancelled");
+                return;
+            }
 
             try
             {

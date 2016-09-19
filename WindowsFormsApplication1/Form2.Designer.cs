@@ -58,6 +58,7 @@
             this.CancelExportButton.TabIndex = 1;
             this.CancelExportButton.Text = "Cancel Export";
             this.CancelExportButton.UseVisualStyleBackColor = true;
+            this.CancelExportButton.Click += new System.EventHandler(this.CancelExportButton_Click);
             // 
             // FinishExportButton
             // 
@@ -73,9 +74,10 @@
             // 
             this.mainPanel.AutoScroll = true;
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(0, 32);
+            this.mainPanel.Location = new System.Drawing.Point(0, 31);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(685, 201);
+            this.mainPanel.Padding = new System.Windows.Forms.Padding(20);
+            this.mainPanel.Size = new System.Drawing.Size(685, 202);
             this.mainPanel.TabIndex = 1;
             // 
             // panel2
@@ -85,7 +87,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.MaximumSize = new System.Drawing.Size(0, 50);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(685, 32);
+            this.panel2.Size = new System.Drawing.Size(685, 31);
             this.panel2.TabIndex = 2;
             // 
             // topLabel
