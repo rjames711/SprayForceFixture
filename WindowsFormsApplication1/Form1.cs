@@ -63,7 +63,7 @@ namespace WindowsFormsApplication1
             //exportLocationBox.Text = Properties.Settings.Default.defaultPath;
             exportLocationBox.Text = defaultPath;
             setComboBoxItems(defaultPath);
-            d.groupBox3.Hide();
+            d.groupBox3.Hide(); //hide the export options radio buttons 
 
 
         }
