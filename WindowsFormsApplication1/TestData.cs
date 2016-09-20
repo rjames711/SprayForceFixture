@@ -52,6 +52,31 @@ namespace WindowsFormsApplication1
 
         }
 
+        public TestData() { }
+
+        public TestData(TestData d, List<double> values)
+        {
+            this.values = new List<double>(values);// need to clone list so it doesn't maintain object reference.
+            this.item = d.item;
+            this.flowRate = d.flowRate;
+            this.measuredFlow = d.measuredFlow;
+            this.testNotes = d.testNotes;
+            this.tester = d.tester;
+            this.testName = d.testName;
+            this.averageForce = values.Average();
+            this.maxForce = values.Max();
+            this.minForce = values.Min();
+            this.dataPoints = values.Count;
+            this.testType = d.measuredPressure;
+            this.units = d.units;
+            this.measuredPressure = d.measuredPressure;
+            this.temperature = d.temperature;
+            DateTime time = DateTime.Now;
+            timeStamp = time.ToString();
+            dateAndTime = timeStamp.Split(' ');
+            this.testLength = Convert.ToDouble(d.dataPoints / 10.0).ToString("N1");
+        }
+
         #region getter and setters
         public List<double> Values
         {

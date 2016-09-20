@@ -265,6 +265,7 @@ namespace WindowsFormsApplication1
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -292,10 +293,10 @@ namespace WindowsFormsApplication1
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 0);
+            this.label9.Location = new System.Drawing.Point(3, 3);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 26);
+            this.label9.Size = new System.Drawing.Size(58, 22);
             this.label9.TabIndex = 0;
             this.label9.Text = "Average Force";
             // 
@@ -304,10 +305,10 @@ namespace WindowsFormsApplication1
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(12, 26);
+            this.label10.Location = new System.Drawing.Point(13, 28);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(39, 26);
+            this.label10.Size = new System.Drawing.Size(39, 22);
             this.label10.TabIndex = 0;
             this.label10.Text = "Max Force";
             // 
@@ -316,10 +317,10 @@ namespace WindowsFormsApplication1
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(0, 58);
+            this.label11.Location = new System.Drawing.Point(13, 53);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(63, 13);
+            this.label11.Size = new System.Drawing.Size(39, 22);
             this.label11.TabIndex = 0;
             this.label11.Text = "Min Force";
             // 
@@ -331,7 +332,7 @@ namespace WindowsFormsApplication1
             this.label12.Location = new System.Drawing.Point(11, 78);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(42, 26);
+            this.label12.Size = new System.Drawing.Size(42, 24);
             this.label12.TabIndex = 0;
             this.label12.Text = "Data Points";
             // 
@@ -340,7 +341,7 @@ namespace WindowsFormsApplication1
             this.averageForceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.averageForceLabel.AutoSize = true;
             this.averageForceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.averageForceLabel.Location = new System.Drawing.Point(83, 6);
+            this.averageForceLabel.Location = new System.Drawing.Point(82, 7);
             this.averageForceLabel.Margin = new System.Windows.Forms.Padding(0);
             this.averageForceLabel.Name = "averageForceLabel";
             this.averageForceLabel.Size = new System.Drawing.Size(25, 13);
@@ -352,7 +353,7 @@ namespace WindowsFormsApplication1
             this.MaxForceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MaxForceLabel.AutoSize = true;
             this.MaxForceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaxForceLabel.Location = new System.Drawing.Point(83, 32);
+            this.MaxForceLabel.Location = new System.Drawing.Point(82, 32);
             this.MaxForceLabel.Margin = new System.Windows.Forms.Padding(0);
             this.MaxForceLabel.Name = "MaxForceLabel";
             this.MaxForceLabel.Size = new System.Drawing.Size(25, 13);
@@ -364,7 +365,7 @@ namespace WindowsFormsApplication1
             this.MinForceLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MinForceLabel.AutoSize = true;
             this.MinForceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinForceLabel.Location = new System.Drawing.Point(83, 58);
+            this.MinForceLabel.Location = new System.Drawing.Point(82, 57);
             this.MinForceLabel.Margin = new System.Windows.Forms.Padding(0);
             this.MinForceLabel.Name = "MinForceLabel";
             this.MinForceLabel.Size = new System.Drawing.Size(25, 13);
@@ -376,7 +377,7 @@ namespace WindowsFormsApplication1
             this.DataPointsLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DataPointsLabel.AutoSize = true;
             this.DataPointsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DataPointsLabel.Location = new System.Drawing.Point(89, 85);
+            this.DataPointsLabel.Location = new System.Drawing.Point(88, 83);
             this.DataPointsLabel.Margin = new System.Windows.Forms.Padding(0);
             this.DataPointsLabel.Name = "DataPointsLabel";
             this.DataPointsLabel.Size = new System.Drawing.Size(14, 13);

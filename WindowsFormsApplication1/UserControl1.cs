@@ -13,7 +13,7 @@ namespace WindowsFormsApplication1
     public partial class UserControl1 : UserControl
     {
 
-        public TestData d;
+        public TestData d=new TestData();
 
         public UserControl1(TestData d)
         {
