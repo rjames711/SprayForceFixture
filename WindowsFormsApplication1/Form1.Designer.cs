@@ -255,7 +255,7 @@ namespace WindowsFormsApplication1
             // 
             this.availablePorts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.availablePorts.FormattingEnabled = true;
-            this.availablePorts.Location = new System.Drawing.Point(109, 23);
+            this.availablePorts.Location = new System.Drawing.Point(109, 24);
             this.availablePorts.Margin = new System.Windows.Forms.Padding(0);
             this.availablePorts.Name = "availablePorts";
             this.availablePorts.Size = new System.Drawing.Size(93, 23);
