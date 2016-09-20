@@ -22,7 +22,7 @@ using System.Collections.Generic;
 ///sub datapoints. At 20 data.dps there will be 10 sub datapoints and so on. 
 
 namespace WindowsFormsApplication1
-{    
+{
     /// <summary>
     /// Main Form, Class for project. Form1.cs includes mostlty methods for form event handling. Form1.Utilitly.cs contains all other 
     /// customs methods 
@@ -43,14 +43,11 @@ namespace WindowsFormsApplication1
         double graphPoint;
         string averageForce;
         string minForce;
-        
-     
-        string maxForce;        
+        string maxForce;
         List<TestSession> tests = new List<TestSession>();
-        //  System.Windows.Forms.Timer refreshTimer; 
-
+   
         public Form1()
-        {         
+        {
             InitializeComponent();
             this.availablePorts.Items.AddRange(getPorts());
             //creates a default location for spray force results 
@@ -64,8 +61,6 @@ namespace WindowsFormsApplication1
             exportLocationBox.Text = defaultPath;
             setComboBoxItems(defaultPath);
             d.groupBox3.Hide(); //hide the export options radio buttons 
-
-
         }
 
         private void startTestButton_Click(object sender, EventArgs e)
@@ -79,7 +74,7 @@ namespace WindowsFormsApplication1
                 //if the test interval is larger than the graph size x axis is increased.
                 ForceGraph.ChartAreas[0].AxisX.Maximum = testInterval;
             }
-            if(testInterval==0)
+            if (testInterval == 0)
             {
                 testInterval = 1000;
             }
@@ -87,11 +82,11 @@ namespace WindowsFormsApplication1
             {
                 resetTest();
                 startTestButton.Text = "Start Test";
-                timer1.Stop();                
+                timer1.Stop();
             }
             else
             {
-                DialogResult result= MessageBox.Show(
+                DialogResult result = MessageBox.Show(
                    "Is Test information Correct?\r\nYes to continue.\r\nNo to stop and edit.", "Check Test Info", MessageBoxButtons.YesNo);
                 if (result == DialogResult.No)
                     return;
@@ -101,6 +96,17 @@ namespace WindowsFormsApplication1
             data.forceValues.Clear();
         }
 
+        private void ClearGraphButton_Click(object sender, EventArgs e)
+        {
+            while (ForceGraph.Series.Count > 1)
+            {
+                ForceGraph.Series.RemoveAt(ForceGraph.Series.Count - 1);
+            }
+            ForceGraph.ChartAreas[0].AxisX.Maximum = 10;
+            ForceGraph.ChartAreas[0].AxisY.Maximum = 10;
+            ForceGraph.ChartAreas[0].AxisY.Minimum = 0;
+            testNumber = 0;
+        }
         private void ConnectButton_Click(object sender, EventArgs e)
         {
             startButton = !startButton;
@@ -114,81 +120,16 @@ namespace WindowsFormsApplication1
                 ConnectButton.Text = "Connect";
                 data = null;
             }
-
         }
         private void TareButton_Click(object sender, EventArgs e)
         {
             data.tareGauge();
         }
 
-        void recordSwitch(object sender, EventArgs e)
-        {
-            recording = !recording;
-            d.averageForceLabel.Text = formatForDisplay(data.forceValues.Average());
-            d.MaxForceLabel.Text = formatForDisplay(data.forceValues.Max());
-            d.MinForceLabel.Text = formatForDisplay(data.forceValues.Min());
-        }
-
-        String formatForDisplay(double value)
-        {
-            return (Math.Round(value, precision)).ToString("N1") + " " + data.unit;
-        }
-
-        public string[] getPorts()
-        {
-            // Get a list of serial port names.
-            string[] ports = SerialPort.GetPortNames();
-
-            Console.WriteLine("The following serial ports were found:");
-
-            // Display each port name to the console.
-            return ports;
-
-        }
-
-        private void ClearGraphButton_Click(object sender, EventArgs e)
-        {
-            while (ForceGraph.Series.Count > 1)
-            {
-                ForceGraph.Series.RemoveAt(ForceGraph.Series.Count - 1);
-            }
-            ForceGraph.ChartAreas[0].AxisX.Maximum = 10;
-            ForceGraph.ChartAreas[0].AxisY.Maximum = 10;
-            ForceGraph.ChartAreas[0].AxisY.Minimum=0;
-            testNumber = 0;
-        }
-
-        private bool hasConnection()
-        {
-            if (data == null || !data.hasConnection())
-            {
-                MessageBox.Show("Not Connected to Serial Port", "No Connection");
-                return false;
-            }
-            return true;
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        //void UpdateDataBase()
-        //{
-        //    Database1DataSet db = new Database1DataSet();
-        //    DataTable db1 = db.SprayForce;
-
-        //    db1.Columns.Add("name", typeof(string));
-        //    db1.Columns.Add("address", typeof(string));
-        //    db1.AcceptChanges();
-
-        //}
-
         private void exportData_Click(object sender, EventArgs e)
         {
             string root = getExportDataLocation();
             Console.WriteLine(root);
-
             Form2 testform = new Form2(tests);
             testform.ShowDialog();
             if (!testform.exportData)
@@ -196,28 +137,25 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("Data Export Cancelled");
                 return;
             }
-            
             try
             {
                 foreach (TestSession test in tests)
-                {   if (!test.export)
-                        continue;                 
+                {
+                    if (!test.export)
+                        continue;
                     test.writeTest(root);
                     test.writeLongTest(root);
-                    test.writeSimpleExcelEntry(root);         
+                    test.writeSimpleExcelEntry(root);
                 }
-
                 tests.RemoveAll(item => item.delete == true);   //remove all tests marked for deletion with the radio button.
                 tests.RemoveAll(item => item.export == true);   //remove all tests marked for deletion with the radio button.
                 MessageBox.Show("Data Export Complete");
-
-               // tests.Clear();
+                // tests.Clear();
             }
             catch
             {
                 MessageBox.Show("Data Export Unsuccessful. Is file open?");
             }
-            
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -235,13 +173,8 @@ namespace WindowsFormsApplication1
         {
             if (recording)
                 updateGraph();
-     //       Console.WriteLine(DateTime.Now.ToString());
+            //       Console.WriteLine(DateTime.Now.ToString());
         }
-
-        //private void calibrateButton_Click(object sender, EventArgs e)
-        //{
-        //    data.calibrate(Convert.ToDouble(calWeightBox.Text));
-        //}
 
         void setComboBoxItems(string path)
         {
@@ -255,7 +188,7 @@ namespace WindowsFormsApplication1
                 StringBuilder name = new StringBuilder(file.ToString());
                 name.Replace(".csv", "");
                 d.testNameComboBox.Items.Add(name);
-            }            
+            }
         }
 
         private void browseButton_Click(object sender, EventArgs e)
@@ -276,15 +209,40 @@ namespace WindowsFormsApplication1
             Properties.Settings.Default.Save();
         }
 
-        private void ForceGraph_Click(object sender, EventArgs e)
+        String formatForDisplay(double value)
         {
-
+            return (Math.Round(value, precision)).ToString("N1") + " " + data.unit;
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        public string[] getPorts()
         {
+            // Get a list of serial port names.
+            string[] ports = SerialPort.GetPortNames();
+
+            Console.WriteLine("The following serial ports were found:");
+
+            // Display each port name to the console.
+            return ports;
 
         }
+        void recordSwitch(object sender, EventArgs e)
+        {
+            recording = !recording;
+            d.averageForceLabel.Text = formatForDisplay(data.forceValues.Average());
+            d.MaxForceLabel.Text = formatForDisplay(data.forceValues.Max());
+            d.MinForceLabel.Text = formatForDisplay(data.forceValues.Min());
+        }
+
+        private bool hasConnection()
+        {
+            if (data == null || !data.hasConnection())
+            {
+                MessageBox.Show("Not Connected to Serial Port", "No Connection");
+                return false;
+            }
+            return true;
+        }
+
     }
 
 

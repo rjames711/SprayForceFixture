@@ -155,7 +155,6 @@ namespace WindowsFormsApplication1
             title1.Name = "Title1";
             title1.Text = "Force vs Time";
             this.ForceGraph.Titles.Add(title1);
-            this.ForceGraph.Click += new System.EventHandler(this.ForceGraph_Click);
             // 
             // panel1
             // 
@@ -395,8 +394,7 @@ namespace WindowsFormsApplication1
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Spray Force Interface";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Spray Force Interface";            
             ((System.ComponentModel.ISupportInitialize)(this.ForceGraph)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
