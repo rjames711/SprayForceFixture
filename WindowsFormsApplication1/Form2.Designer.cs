@@ -47,7 +47,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 233);
             this.panel1.MinimumSize = new System.Drawing.Size(650, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(685, 30);
+            this.panel1.Size = new System.Drawing.Size(761, 30);
             this.panel1.TabIndex = 0;
             // 
             // CancelExportButton
@@ -64,7 +64,7 @@
             // FinishExportButton
             // 
             this.FinishExportButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.FinishExportButton.Location = new System.Drawing.Point(577, 0);
+            this.FinishExportButton.Location = new System.Drawing.Point(653, 0);
             this.FinishExportButton.Name = "FinishExportButton";
             this.FinishExportButton.Size = new System.Drawing.Size(108, 30);
             this.FinishExportButton.TabIndex = 0;
@@ -79,7 +79,7 @@
             this.mainPanel.Location = new System.Drawing.Point(0, 31);
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Padding = new System.Windows.Forms.Padding(20);
-            this.mainPanel.Size = new System.Drawing.Size(685, 202);
+            this.mainPanel.Size = new System.Drawing.Size(761, 202);
             this.mainPanel.TabIndex = 1;
             // 
             // panel2
@@ -89,7 +89,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.MaximumSize = new System.Drawing.Size(0, 50);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(685, 31);
+            this.panel2.Size = new System.Drawing.Size(761, 31);
             this.panel2.TabIndex = 2;
             // 
             // topLabel
@@ -106,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(685, 263);
+            this.ClientSize = new System.Drawing.Size(761, 263);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

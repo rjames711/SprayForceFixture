@@ -148,7 +148,7 @@ namespace WindowsFormsApplication1
             series1.Name = "Test Runs";
             series1.Points.Add(dataPoint1);
             this.ForceGraph.Series.Add(series1);
-            this.ForceGraph.Size = new System.Drawing.Size(1041, 250);
+            this.ForceGraph.Size = new System.Drawing.Size(1050, 250);
             this.ForceGraph.TabIndex = 14;
             this.ForceGraph.Text = "chart1";
             title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -167,15 +167,15 @@ namespace WindowsFormsApplication1
             this.panel1.MaximumSize = new System.Drawing.Size(0, 250);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(2);
-            this.panel1.Size = new System.Drawing.Size(1041, 233);
+            this.panel1.Size = new System.Drawing.Size(1050, 233);
             this.panel1.TabIndex = 16;
             // 
             // d
             // 
             this.d.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.d.Location = new System.Drawing.Point(301, 2);
+            this.d.Location = new System.Drawing.Point(319, 2);
             this.d.Name = "d";
-            this.d.Size = new System.Drawing.Size(738, 185);
+            this.d.Size = new System.Drawing.Size(729, 185);
             this.d.TabIndex = 24;
             // 
             // groupBox2
@@ -185,7 +185,7 @@ namespace WindowsFormsApplication1
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(299, 185);
+            this.groupBox2.Size = new System.Drawing.Size(317, 185);
             this.groupBox2.TabIndex = 23;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Set-Up";
@@ -215,7 +215,7 @@ namespace WindowsFormsApplication1
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(293, 165);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(311, 165);
             this.tableLayoutPanel2.TabIndex = 21;
             // 
             // label1
@@ -223,7 +223,7 @@ namespace WindowsFormsApplication1
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(22, 20);
+            this.label1.Location = new System.Drawing.Point(25, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 30);
             this.label1.TabIndex = 0;
@@ -234,7 +234,7 @@ namespace WindowsFormsApplication1
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 67);
+            this.label2.Location = new System.Drawing.Point(29, 67);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 30);
             this.label2.TabIndex = 1;
@@ -245,9 +245,9 @@ namespace WindowsFormsApplication1
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 114);
+            this.label3.Location = new System.Drawing.Point(17, 114);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 30);
+            this.label3.Size = new System.Drawing.Size(85, 30);
             this.label3.TabIndex = 2;
             this.label3.Text = "Test Interval (s)";
             // 
@@ -255,10 +255,10 @@ namespace WindowsFormsApplication1
             // 
             this.availablePorts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.availablePorts.FormattingEnabled = true;
-            this.availablePorts.Location = new System.Drawing.Point(103, 24);
+            this.availablePorts.Location = new System.Drawing.Point(109, 23);
             this.availablePorts.Margin = new System.Windows.Forms.Padding(0);
             this.availablePorts.Name = "availablePorts";
-            this.availablePorts.Size = new System.Drawing.Size(87, 23);
+            this.availablePorts.Size = new System.Drawing.Size(93, 23);
             this.availablePorts.TabIndex = 3;
             // 
             // ForceReadingLabel
@@ -266,27 +266,27 @@ namespace WindowsFormsApplication1
             this.ForceReadingLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ForceReadingLabel.AutoSize = true;
             this.ForceReadingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForceReadingLabel.Location = new System.Drawing.Point(106, 74);
+            this.ForceReadingLabel.Location = new System.Drawing.Point(112, 74);
             this.ForceReadingLabel.Name = "ForceReadingLabel";
-            this.ForceReadingLabel.Size = new System.Drawing.Size(81, 16);
+            this.ForceReadingLabel.Size = new System.Drawing.Size(87, 16);
             this.ForceReadingLabel.TabIndex = 4;
             this.ForceReadingLabel.Text = "0.0 lbs";
             // 
             // timeInputControl
             // 
             this.timeInputControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.timeInputControl.Location = new System.Drawing.Point(106, 119);
+            this.timeInputControl.Location = new System.Drawing.Point(112, 119);
             this.timeInputControl.Name = "timeInputControl";
-            this.timeInputControl.Size = new System.Drawing.Size(81, 21);
+            this.timeInputControl.Size = new System.Drawing.Size(87, 21);
             this.timeInputControl.TabIndex = 5;
             this.timeInputControl.Text = "10";
             // 
             // ConnectButton
             // 
             this.ConnectButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.ConnectButton.Location = new System.Drawing.Point(196, 23);
+            this.ConnectButton.Location = new System.Drawing.Point(208, 23);
             this.ConnectButton.Name = "ConnectButton";
-            this.ConnectButton.Size = new System.Drawing.Size(81, 23);
+            this.ConnectButton.Size = new System.Drawing.Size(87, 23);
             this.ConnectButton.TabIndex = 6;
             this.ConnectButton.Text = "Connect";
             this.ConnectButton.UseVisualStyleBackColor = true;
@@ -295,9 +295,9 @@ namespace WindowsFormsApplication1
             // tarebutton
             // 
             this.tarebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tarebutton.Location = new System.Drawing.Point(196, 70);
+            this.tarebutton.Location = new System.Drawing.Point(208, 70);
             this.tarebutton.Name = "tarebutton";
-            this.tarebutton.Size = new System.Drawing.Size(81, 23);
+            this.tarebutton.Size = new System.Drawing.Size(87, 23);
             this.tarebutton.TabIndex = 7;
             this.tarebutton.Text = "Tare";
             this.tarebutton.UseVisualStyleBackColor = true;
@@ -306,9 +306,9 @@ namespace WindowsFormsApplication1
             // startTestButton
             // 
             this.startTestButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.startTestButton.Location = new System.Drawing.Point(196, 118);
+            this.startTestButton.Location = new System.Drawing.Point(208, 118);
             this.startTestButton.Name = "startTestButton";
-            this.startTestButton.Size = new System.Drawing.Size(81, 23);
+            this.startTestButton.Size = new System.Drawing.Size(87, 23);
             this.startTestButton.TabIndex = 8;
             this.startTestButton.Text = "Start Test";
             this.startTestButton.UseVisualStyleBackColor = true;
@@ -325,7 +325,7 @@ namespace WindowsFormsApplication1
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(2, 187);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1037, 44);
+            this.groupBox1.Size = new System.Drawing.Size(1046, 44);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Data Options";
@@ -381,7 +381,7 @@ namespace WindowsFormsApplication1
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 233);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1041, 250);
+            this.panel2.Size = new System.Drawing.Size(1050, 250);
             this.panel2.TabIndex = 17;
             // 
             // Form1
@@ -389,7 +389,7 @@ namespace WindowsFormsApplication1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1041, 483);
+            this.ClientSize = new System.Drawing.Size(1050, 483);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

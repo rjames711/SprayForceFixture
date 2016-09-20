@@ -32,9 +32,11 @@ namespace WindowsFormsApplication1
         string[] dateAndTime;
         string measuredPressure;
         string testLength;
+        string temperature;
         public TestData d;
         public bool export=true;
         public bool delete = false;
+
 
 
         public void copyData()
@@ -56,6 +58,7 @@ namespace WindowsFormsApplication1
             this.dateAndTime = d.DateAndTime;
             this.measuredPressure = d.MeasuredPressure;
             this.testLength = d.TestLength;
+            this.temperature = d.Temperature;
             this.export = d.Export;
             this.delete = d.Delete;
         }
@@ -168,8 +171,8 @@ namespace WindowsFormsApplication1
             var excelApp = new Excel.Application();
 
             object[][] sheet2Lines = new object[2][];
-            sheet2Lines[0] = new object[] { "Average Force", "Flow", "Pressure", "Date Tested", "Time", "Tested By","Sample","Notes","Data Point" };
-            sheet2Lines[1] = new object[] { averageForce, measuredFlow, measuredPressure, dateAndTime[0], dateAndTime[1], tester, item, testNotes, values };
+            sheet2Lines[0] = new object[] { "Average Force", "Flow", "Pressure", "Temperature","Date Tested", "Time", "Tested By","Sample","Notes","Data Point" };
+            sheet2Lines[1] = new object[] { averageForce, measuredFlow, measuredPressure,temperature, dateAndTime[0], dateAndTime[1], tester, item, testNotes, values };
             Excel.Workbook workbook;
        
             try
@@ -182,7 +185,7 @@ namespace WindowsFormsApplication1
                 workbook.SaveAs(root + "\\" + testName + ".xlsx");
             }
             Excel._Worksheet workSheet2 = (Excel.Worksheet)excelApp.ActiveSheet;
-            workSheet2.Columns[4].NumberFormat = "@"; //format date column as text so it doesn't come in hashed
+            workSheet2.Columns[5].NumberFormat = "@"; //format date column as text so it doesn't come in hashed
             int startRow = 1;
 
             var cell = workSheet2.Cells[startRow + 1, 1];

@@ -122,8 +122,10 @@ namespace WindowsFormsApplication1
         /// </summary>
         void resetTest()
         {
-            tests.Add(new TestSession(new TestData(data.forceValues, d.testNameComboBox.Text, d.ItemBox.Text, data.unit, "",
-            d.MeasureFlowBox.Text, d.MeasuredPressureBox.Text, d.TesterBox.Text, d.TestNotesBox.Text)));
+            d.getUserInput();
+            //           tests.Add(new TestSession(new TestData(data.forceValues, d.testNameComboBox.Text, d.ItemBox.Text, data.unit, "",
+            //           d.MeasureFlowBox.Text, d.MeasuredPressureBox.Text, d.TesterBox.Text, d.TestNotesBox.Text)));
+            tests.Add(new TestSession(new TestData(d.d, data.forceValues, data.unit)));
             recording = false;
             data.recording = false;
             graphPoint = 0;           

@@ -25,6 +25,7 @@ namespace WindowsFormsApplication1
         public UserControl1()
         {
             InitializeComponent();
+            d = new TestData();
             getValues();
         }
         public void setTitle(int testNumber)
