@@ -25,33 +25,13 @@ namespace WindowsFormsApplication1
         public UserControl1()
         {
             InitializeComponent();
-            d = new TestData();
-            getValues();
-        }
-        public void setTitle(int testNumber)
-        {
-            groupBox1.Text += ": Test" + testNumber;
-            groupBox2.Text += ": Test" + testNumber;
+            d = new TestData();         
         }
 
         /// <summary>
-        /// Gets user input by iterating over table controls,
-        /// and adding control text to list if its a textbox or
-        /// a combobox
+        ///Retrieves user editable information in the form control and 
+        ///updates the associated data objects
         /// </summary>
-        /// <returns>A list of strings with inputted values </returns>
-        public List<string> getValues()
-        {
-            List<string> alist = new List<string>();
-            foreach (Control input in tableLayoutPanel1.Controls)
-            {
-                if (input is TextBox || input is ComboBox)
-                    alist.Add(String.Copy((input.Text)));
-                //Console.Write(input.Text);
-            }
-            return alist;
-        }
-
         public void getUserInput()
         {
             d.TestName = testNameComboBox.Text;
@@ -64,6 +44,11 @@ namespace WindowsFormsApplication1
             d.Export=ExportRadioButton.Checked;
             d.Delete = deleteRadioButton.Checked;
         }
+
+        /// <summary>
+        /// Sets the text information in the form control based on the info in the 
+        /// enclosed data object
+        /// </summary>
         public void setUserInput()
         {
             testNameComboBox.Text = d.TestName;
@@ -78,6 +63,12 @@ namespace WindowsFormsApplication1
             averageForceLabel.Text = formatForDisplay(d.AverageForce);
             DataPointsLabel.Text = d.DataPoints.ToString();
 
+        }
+
+        public void setTitle(int testNumber)
+        {
+            groupBox1.Text += ": Test" + testNumber;
+            groupBox2.Text += ": Test" + testNumber;
         }
 
         String formatForDisplay(double value)

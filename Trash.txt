@@ -96,3 +96,30 @@ From form1
             // top.Select();
             topLabel.Select();
         }
+
+		from usercontrol1
+		        /// <summary>
+        /// Gets user input by iterating over table controls,
+        /// and adding control text to list if its a textbox or
+        /// a combobox
+        /// </summary>
+        /// <returns>A list of strings with inputted values </returns>
+        public List<string> getValues()
+        {
+            List<string> alist = new List<string>();
+            foreach (Control input in tableLayoutPanel1.Controls)
+            {
+                if (input is TextBox || input is ComboBox)
+                    alist.Add(String.Copy((input.Text)));           
+            }
+            return alist;
+        }
+		>from default constructor
+		  getValues();
+
+
+
+        public Form2()
+        {
+            InitializeComponent();
+        }

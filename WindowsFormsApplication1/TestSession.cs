@@ -166,7 +166,7 @@ namespace WindowsFormsApplication1
         }
 
         public void writeSimpleExcelEntry(string root)
-        {
+        { 
             root = Directory.CreateDirectory(root + "\\Excel Reports").FullName;
             var excelApp = new Excel.Application();
 

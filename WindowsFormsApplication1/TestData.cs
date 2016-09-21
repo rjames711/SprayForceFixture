@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
+    /// <summary>
+    /// Data object containing all test information. Shared by usercontrol and test session.
+    /// </summary>
     public class TestData
     {
         private List<double> values;
@@ -49,7 +52,6 @@ namespace WindowsFormsApplication1
             timeStamp = time.ToString();
             dateAndTime = timeStamp.Split(' ');
             this.testLength = Convert.ToDouble(dataPoints / 10.0).ToString("N1");
-
         }
 
         public TestData(TestData d, List<double> values,string units)
